@@ -35,7 +35,7 @@
   justify-content: flex-start;
   align-items: center;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.3) ,  rgb(255, 255, 255 , 1));
+  background: linear-gradient(rgba(0, 0, 0, 0.9) ,  rgb(255, 255, 255 , 1));
 }
 
 .LandingBlackCoverTextWrapper {
@@ -54,6 +54,7 @@
 .LandingBlackCoverTextWrapper h1 {
 
   font-size: 60px;
+  text-shadow: 0px 2px 9px rgba(21, 21, 21, 0.95);
 
 }
 
@@ -63,6 +64,10 @@
 
   font-weight: 500;
   font-size: 30px;
+
+  text-shadow: 0px 2px 9px rgba(21, 21, 21, 0.95);
+
+
 
 }
 
