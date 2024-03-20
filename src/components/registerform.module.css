@@ -1,0 +1,29 @@
+.registerBlock{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100vw;
+    height: 65vh;
+    background-color: aliceblue;
+    margin-top: 40px;
+}
+
+.registerForm{
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.textField{
+    width: 85%;
+    border-radius: 5px;
+}
+
+/* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),0px 4px 2px rgba(0, 0, 0, 0.5); */
