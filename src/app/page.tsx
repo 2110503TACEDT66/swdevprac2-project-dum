@@ -17,11 +17,11 @@ export default function Landing() {
       <div className={styles.Landing}>
         <section className={styles.LandingSec1}>
             <img className={styles.SlideShowImage} src={ImageList[imageIndex]} width={0} height={0} alt='SlideShowImage' sizes='100vh'/>
-          <div className={styles.LandingBlackCover}>
-            <div className={styles.LandingBlackCoverTextWrapper}>
+          <div className={styles.LandingCover}>
+            <div className={styles.LandingCoverTextWrapper}>
               <h1>CEDT Online Job Fair 2022</h1>
               <h2>Look for your own opportunities.</h2>
-              <Button className={styles.LandingBlackCoverButton}>Sign up / Login</Button>
+              <Button className={styles.LandingCoverButton}>Sign up / Login</Button>
             </div>
           </div>
         </section>
