@@ -19,7 +19,7 @@
     font-family:'Poppins';
     font-weight: 400;
 
-    background-color: rgb(252, 252, 252);
+    background-color: #143154;
 
 }
 
@@ -64,12 +64,18 @@
 
 .NavBarButton {
 
+    width: 33%;
+
     display: block;
-    color: rgb(33, 33, 33);
+    color: #F9F9F9;
 
     font-family:'Poppins';
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
+
+    border-radius: 0px;
+
+    border-left: solid 1px;
 
 }
 
