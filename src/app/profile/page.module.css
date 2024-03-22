@@ -1,0 +1,22 @@
+.Sec1 {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 11.5% 0 11.5%;
+    box-sizing: border-box;
+
+    
+}
+
+.DetailContainer {
+
+    width: 100%;
+    height: 100px;
+    background-color: aqua;
+
+}

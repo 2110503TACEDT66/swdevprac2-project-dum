@@ -48,6 +48,8 @@
     align-items: center;
     justify-content: center;
 
+    text-decoration: none;
+    color: #F9F9F9;
 }
 
 .NavBarButtonWrapper {
@@ -64,18 +66,33 @@
 
 .NavBarButton {
 
-    width: 33%;
+    height: 80%;
+    width: 33.33%;
 
-    display: block;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+}
+
+.NavBarButton button {
+
+    width: 100%;
+
     color: #F9F9F9;
 
     font-family:'Poppins';
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
+}
 
-    border-radius: 0px;
+.NavBarButton button:hover {
 
-    border-left: solid 1px;
+    color: #143154;
+    background-color: #f9f9f9;
 
 }
 
@@ -92,7 +109,7 @@
 
 @media (width <= 1280px) {
    
-    .NavBarButton {
+    .NavBarButton button {
         font-size: 16px;
     }
 
@@ -113,6 +130,10 @@
 
     .NavBarButtonWrapper {
         width: 60%;
+    }
+
+    .NavBarButton button {
+        font-size: 14px;
     }
 }
 

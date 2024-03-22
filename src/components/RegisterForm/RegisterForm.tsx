@@ -2,6 +2,7 @@ import { TextField } from '@mui/material'
 import styles from './registerform.module.css'
 
 export default function RegisterForm(){
+    
     return (
         <div className={styles.registerBlock}>
             <h1 className={styles.title}>Register</h1>
