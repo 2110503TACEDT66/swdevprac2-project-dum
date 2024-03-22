@@ -1,0 +1,63 @@
+/* Import a new font family */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.footerBlock {
+  width: 100vw;
+  height: 22vh;
+  background-color: #CEEEF4;
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: #26558F;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leftFooter, .rightFooter {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rightFooter {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.leftFooter {
+  justify-content: flex-end;
+}
+
+.leftFooterHead {
+  margin-right: 200px;
+  margin-bottom: 50px;
+  font-size: 2rem; 
+  font-weight: bold; 
+}
+
+.rightTextBox {
+  margin-left: 100px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 35%;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}

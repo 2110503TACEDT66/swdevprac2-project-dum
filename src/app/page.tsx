@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import ImageList from '@/components/SlideShowImage/SlideShowImage'
 import { Button } from '@mui/material'
+import Footer from '@/components/Footer/Footer'
 
 export default function Landing() {
 
@@ -53,6 +54,7 @@ export default function Landing() {
           </div>
 
         </section>
+        <Footer/>
       </div>
   )
 }
