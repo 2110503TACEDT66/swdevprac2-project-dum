@@ -10,7 +10,6 @@ import CompanyPanel from '@/components/CompanyPanel/CompanyPanel'
 export default function CompanyPage() {
     return (
         <div>
-            {/* <TimeSlotPanel/> */}
             <CompanyPanel/>
         </div>
         
