@@ -1,7 +1,7 @@
 const backend_url = process.env.BACKEND_URL
 
 export default async function userLogin(userEmail : string , userPassword : string) {
-    
+    console.log(userEmail , userPassword)
     const userToken = await getUserToken(userEmail , userPassword)
 
     const userDetail = await getUserDetail(userToken.token)

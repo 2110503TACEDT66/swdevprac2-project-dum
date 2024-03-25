@@ -1,0 +1,142 @@
+.ContentWrapper {
+    height: 94vh;
+    width: 100%;
+    background-color: #62C1D5   ;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Poppins';
+}
+
+.SignUpPage {
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #62C1D5;
+
+    padding: 0 11.5% 0 11.5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box  ;
+
+    padding-bottom: 10vh;
+
+
+
+}
+
+.SignUpPageMinimal {
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #62C1D5;
+
+    padding: 0 11.5% 0 11.5%;
+
+    margin-top: 1vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    box-sizing: border-box  ;
+
+    padding-bottom: 10vh;
+
+}
+
+.SignUpPageMinimal .SignUpForm {
+    display: none;
+
+}
+
+.SignUpHeader {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+
+.SignUpForm {
+    position: relative;
+    width: 28vw;
+    margin-top: 2vh;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: solid 2px;
+    border-color: white;
+    border-radius: 15px;
+
+    padding-bottom: 3vh;
+    
+
+}
+
+.SignUpForm input {
+    height: 4.5vh;
+    width: 25vw;
+
+    border: none;
+    outline: none;
+
+    border-radius: 15px;
+
+    margin-top: 3vh;
+
+    box-sizing: border-box;
+
+}
+
+.SignUpForm input[type='text'] , .SignUpForm input[type='email'] , .SignUpForm input[type='password']  , .SignUpForm input[type='tel']  {
+    padding-left: 5%;
+
+}
+
+.SignInPage {
+    position: absolute;
+    bottom: -90vh;
+    height: 100vh;
+    width: 100%;
+    background-color: blueviolet;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2vh;
+    box-sizing: border-box;
+
+
+}
+
+.SignInPageExpand {
+    position: absolute;
+    top: 8vh;
+    height: 100vh;
+    width: 100%;
+    background-color: blueviolet;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2vh;
+    box-sizing: border-box;
+
+
+}
+
+.SignInHeader {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}

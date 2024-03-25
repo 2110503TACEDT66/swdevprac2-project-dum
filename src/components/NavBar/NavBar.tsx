@@ -43,7 +43,7 @@ export default async function NavBar () {
             </Link>
                 
                 <div className={styles.NavBarButtonWrapper}>
-                    <NavBarButton link= ''text='Company'/>
+                    <NavBarButton link= ''text='Companies'/>
                     {
                     session ? 
                     <NavBarButton link='/profile' imgSrc={userImageUrl}></NavBarButton> 
