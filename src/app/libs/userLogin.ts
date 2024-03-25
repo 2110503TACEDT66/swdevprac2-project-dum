@@ -8,6 +8,9 @@ export default async function userLogin(userEmail : string , userPassword : stri
 
     const userDetail = await getUserDetail(userToken.token)
 
+    if (userDetail && userToken)
+        userDetail.data.token = userToken.token
+    
     return userDetail
 
 }

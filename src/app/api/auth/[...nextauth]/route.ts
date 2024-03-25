@@ -38,8 +38,7 @@ export const authOptions : AuthOptions = {
             return {...token , ...user} 
         } , 
         async session({session , token , user} : {session : any , token : JWT , user : AdapterUser}) {
-
-            session.user = token
+            session.user = token.data
             return session
         }
     }

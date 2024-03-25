@@ -78,6 +78,20 @@
 
 }
 
+.NavBarImageButton {
+
+    height: 100%;
+    width: 20%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+}
+
 .NavBarButton button {
 
     width: 100%;
@@ -87,6 +101,13 @@
     font-family:'Poppins';
     font-weight: 300;
     font-size: 18px;
+}
+
+.NavBarProfileImage {
+    height: 100%;
+    aspect-ratio: 1;
+    width: auto;
+    border-radius: 50%;
 }
 
 .NavBarButton button:hover {
