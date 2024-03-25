@@ -1,0 +1,13 @@
+.fullBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #B1E2ED;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%; 
+  }
+  
+  .mock {
+    width: 60vw; /* Remove or set width to auto to allow the SessionPanel to adjust its width */
+  }

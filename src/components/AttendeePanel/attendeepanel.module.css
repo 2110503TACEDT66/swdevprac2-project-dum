@@ -1,0 +1,39 @@
+.fullBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #B1E2ED;
+    padding: 15px;
+    border-radius: 20px;
+    position: relative; /* Added */
+  }
+  
+  .rowBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20px;
+    position: relative; 
+  }
+  
+  .Heading {
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+  }
+  
+  .minimizeBlock {
+    text-align: right;
+    position: absolute; 
+    right: 0; 
+    z-index: 1; 
+  }
+  
+  .numbersOfAttendee {
+    text-align: center;
+    width: 100%;
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 0; 
+  }
