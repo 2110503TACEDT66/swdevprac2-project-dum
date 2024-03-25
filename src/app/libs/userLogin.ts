@@ -1,5 +1,3 @@
-import { getServerSession } from "next-auth"
-import { authOptions } from "../api/auth/[...nextauth]/route"
 const backend_url = process.env.BACKEND_URL
 
 export default async function userLogin(userEmail : string , userPassword : string) {

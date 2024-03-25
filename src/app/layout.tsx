@@ -22,11 +22,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <NextAuthProvider session={session}>
             <NavBar/>
             {children}
-        </NextAuthProvider>=
+        </NextAuthProvider>
         </body>
     </html>
   )
