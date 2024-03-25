@@ -48,6 +48,7 @@ export default  function UserDetailCard () {
             const newData : any = {}
 
             Array.from(inpForm).forEach((X : any)  => {
+                X.disabled = true
                 newData[X.name] = X.value
             });
 
@@ -76,13 +77,14 @@ export default  function UserDetailCard () {
     }
 
     useEffect(() => {
-        if (state != 0) {
 
-            const inpForm = document.forms[0]
+        const inpForm = document.forms[0]
             Array.from(inpForm).forEach((X : any)  => {
                 X.disabled = false
             });
 
+
+        if (state != 0) {
             updateState(0)
         }
     } , [])
@@ -97,7 +99,7 @@ export default  function UserDetailCard () {
                 <div className={state == 1 ? styles.RightTopBlock : styles.RightTopBlockOneItem}>
                     
                     {state == 1 ? <button onClick={() => {imageBuffer = prompt('Enter Picture URL')}}>Change Picture</button> : ''}
-                    <button onClick={updateClickHandler}>{state == 0 ? 'Edit' : 'Save'}</button>
+                    <button onClick={updateClickHandler} className={styles.SaveButton}>{state == 0 ? 'Edit' : 'Save'}</button>
                 </div>
                 
             </div>

@@ -36,7 +36,6 @@ export const authOptions : AuthOptions = {
         async jwt({token , user , session , trigger}) {
             
             if (trigger === 'update') {
-                console.log('========')
                 
                 token.data = session.user
 
@@ -56,9 +55,10 @@ export const authOptions : AuthOptions = {
             return session
         }
     },
-    // pages : {
-    //     signIn : './signin'
-    // }
+    pages : {
+        signIn : '/signin',
+        // signOut : '/signout'
+    }
 }
 
 const handler  = nextAuth(authOptions)

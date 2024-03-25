@@ -13,7 +13,7 @@
 
 .DetailCard h2 {
     font-family: 'Poppins';
-    font-weight: 300;
+    font-weight: 700;
     font-size: 24px;
 }
 
@@ -65,8 +65,15 @@
 
     border-radius: 15px;
     border: none;
+
+    background-color: #F3B02E;
+    color: white;
+    font-weight: 500;
 }
 
+.RightTopBlock .SaveButton {
+    background-color: #5BA4B4;
+}
 
 
 
@@ -108,7 +115,7 @@
 .FormBlock {
 
     width: 100%;
-    height: 80%;
+    height: 70%;
     /* background-color: aquamarine; */
 
     display: flex;
