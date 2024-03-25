@@ -54,7 +54,9 @@ export default function Landing() {
           </div>
 
         </section>
-        <Footer/>
+
+        <Footer></Footer>
+        
       </div>
   )
 }

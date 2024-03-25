@@ -5,7 +5,7 @@ import NavBar from '@/components/NavBar/NavBar'
 const inter = Inter({ subsets: ['latin'] })
 import { getServerSession } from 'next-auth'
 import { authOptions } from './api/auth/[...nextauth]/route'
-import { SessionProvider } from 'next-auth/react'
+import NextAuthProvider from '@/providers/NextAuthProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,10 +23,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider session={session}>
+        <NextAuthProvider session={session}>
             <NavBar/>
             {children}
-        </SessionProvider>
+        </NextAuthProvider>=
         </body>
     </html>
   )
