@@ -5,7 +5,7 @@ export default function RegisterForm(){
     
     return (
         <div className={styles.registerBlock}>
-            <h1 className={styles.title}>Register</h1>
+            <h1 className={styles.title}>Sign up</h1>
             <form id='register-form' className={styles.registerForm}>
                 <TextField
                 required
@@ -49,7 +49,7 @@ export default function RegisterForm(){
                 className={styles.TextField}
                 margin='dense'/>
                 <button className={styles.registerButton} type='submit'>
-                    Register
+                    Sign up
                 </button>
             </form>
         </div>
