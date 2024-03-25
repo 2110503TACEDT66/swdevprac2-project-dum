@@ -20,7 +20,7 @@ export default function Reservation({compName,date,time,currentCapacity,maxCapac
             <div className={styles.rowBlock}>
                 {!expanded && 
                     <div className={styles.rowBlock}>
-                        <div className={styles.textBlock}>{compName}</div>
+                        <div className={styles.compName}>{compName}</div>
                         <div className={styles.textBlock}>{date.toLocaleDateString()}</div>
                         <div className={styles.textBlock}>{time}</div>
                         <div className={styles.textBlock}>Capacity : {currentCapacity}/{maxCapacity}</div>
