@@ -1,0 +1,9 @@
+.fullBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #D7F2F7;
+    padding: 30px;
+    border-radius: 20px;
+  }
+  
