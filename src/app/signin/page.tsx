@@ -22,7 +22,8 @@ export default function SignIn() {
         if (thisUser) {
             await signIn('credentials' , {
                 email : thisUser.data.email,
-                password : password
+                password : password,
+                callbackUrl : '/'
             })
         }
     }
@@ -34,7 +35,8 @@ export default function SignIn() {
 
         await signIn('credentials' , {
             email : email,
-            password : password
+            password : password,
+            callbackUrl : '/'
         })
 
     }
