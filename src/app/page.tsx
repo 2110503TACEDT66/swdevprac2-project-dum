@@ -22,7 +22,7 @@ export default function Landing() {
             <div className={styles.LandingCoverTextWrapper}>
               <h1>CEDT Online Job Fair 2022</h1>
               <h2>Look for your own opportunities.</h2>
-              <Button className={styles.LandingCoverButton}>Get Started</Button>
+              <Button className={styles.LandingCoverButton}>Sign up / Sign in</Button>
             </div>
           </div>
         </section>
@@ -30,8 +30,8 @@ export default function Landing() {
         <section className={styles.LandingSec2}>
 
           <div className={styles.LandingSec2BlockRight + ' ' + styles.LandingSec2Block}>
-            <h1 className={styles.LandingSec2TextContainer}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt et praesentium voluptatum illo laudantium alias inventore odit ipsum, eaque beatae error, ea autem? Rerum tempora ipsum qui asperiores, placeat provident!
-            Magni ratione velit autem alias eos! Repellendus</h1>
+            <h1 className={styles.LandingSec2TextContainer}>Explore Diverse Opportunities : Whether you're seeking your first job, transitioning to a new career path, or aiming for career advancement, 
+            our job fair showcases a wide range of opportunities across computer industries</h1>
             <div className={styles.LandingSec2IconContainer}>
               <img src='/LandingIcon/1.png' alt="1" />
             </div>
@@ -41,17 +41,18 @@ export default function Landing() {
             <div className={styles.LandingSec2IconContainer}>
             <img src='/LandingIcon/2.png' alt="2" />
             </div>
-            <h1 className={styles.LandingSec2TextContainer}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit voluptates asperiores repellat optio suscipit? Distinctio officia porro provident sequi blanditiis quasi quam ex. A, ratione asperiores? Consectetur, veniam porro.
-            Numquam odio ipsum sequi, doloremque excepturi atqu.</h1>
+            <h1 className={styles.LandingSec2TextContainer}>Engage with Employers : Connect directly with recruiters and hiring managers from top companies. This is your chance to ask questions, 
+            learn about company culture, and showcase your skills and experience.</h1>
           </div>
 
           <div className={styles.LandingSec2BlockRight + ' ' + styles.LandingSec2Block}>
-            <h1 className={styles.LandingSec2TextContainer}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, culpa officiis laudantium magni modi neque dignissimos incidunt perspiciatis, numquam, fugit perferendis nihil maxime labore explicabo. Repellat in voluptas accusantium omnis!
-            In dolorum quod consectetur animi necessitatibus</h1>
+            <h1 className={styles.LandingSec2TextContainer}>Convenient and Flexible : No need to worry about commuting or scheduling conflicts. Our online platform gives you the flexibility to participate at your own pace, 
+            anytime, anywhere.</h1>
               <div className={styles.LandingSec2IconContainer}>
               <img src='/LandingIcon/3.png' alt="3" />
               </div>
           </div>
+
 
         </section>
         <Footer/>
