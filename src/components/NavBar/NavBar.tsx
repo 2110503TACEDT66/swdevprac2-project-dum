@@ -22,7 +22,7 @@ export default function NavBar () {
                 
                 <div className={styles.NavBarButtonWrapper}>
                     <NavBarButton link= ''text='Company'/>
-                    <NavBarButton link= '' text='Interview'/>
+                    {/* <NavBarButton link= '' text='Interview'/> */}
                     <NavBarButton link='/profile' text='Profile'/>
                     <div className={styles.NavBarButtonCollection}></div>
                     

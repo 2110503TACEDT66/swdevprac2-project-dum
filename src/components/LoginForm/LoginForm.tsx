@@ -4,7 +4,7 @@ import styles from './loginform.module.css'
 export default function LoginForm(){
     return (
         <div className={styles.loginBlock}>
-            <h1 className={styles.title}>Log in</h1>
+            <h1 className={styles.title}>Login</h1>
             <form id='login-form' className={styles.loginForm}>
                 <TextField
                 required
