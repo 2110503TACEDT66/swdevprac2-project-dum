@@ -1,8 +1,9 @@
 .mock{
-    width: 57vw;
+    width: 100vw;
 }
 
 .fullBlock {
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
     gap: 15px; 
