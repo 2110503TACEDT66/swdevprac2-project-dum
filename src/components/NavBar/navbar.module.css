@@ -55,7 +55,7 @@
 .NavBarButtonWrapper {
 
     height: 100%;
-    width: 30%;
+    width: 15%;
 
     display: flex;
     flex-direction: row;
@@ -67,7 +67,7 @@
 .NavBarButton {
 
     height: 80%;
-    width: 33.33%;
+    width: 70%;
 
     display: flex;
 
@@ -81,7 +81,7 @@
 .NavBarImageButton {
 
     height: 100%;
-    width: 20%;
+    width: 30%;
 
     display: flex;
 
@@ -135,28 +135,30 @@
     }
 
     .NavBarButtonWrapper {
-        width: 35%;
+        width: 20%;
     }
 
 }
+
+
 
 @media (width <= 960px) {
 
     .NavBarButtonWrapper {
-        width: 45%;
+        width: 25%;
     }
 }
+
 
 @media (width <= 720px) {
 
     .NavBarButtonWrapper {
-        width: 60%;
+        width: 32%;
     }
 
-    .NavBarButton button {
-        font-size: 14px;
-    }
 }
+
+
 
 @media (width <= 512px) {
 
@@ -175,4 +177,4 @@
     .NavBarButtonCollection {
         display: block;
     }
-}
+} 
