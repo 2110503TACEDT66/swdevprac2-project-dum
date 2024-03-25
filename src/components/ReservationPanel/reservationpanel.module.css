@@ -1,0 +1,12 @@
+.fullBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    background-color: #B1E2ED;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.mock{
+    width: calc(73vw + 30px);
+}

@@ -7,5 +7,6 @@ export default function ProfilePage () {
                 <div className={styles.ProfilePicWrapper}></div>
             </div>
        </section>
+
     )
 }

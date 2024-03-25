@@ -1,0 +1,98 @@
+.fullBlock{
+    display: flex;
+    flex-direction: column;
+    background-color: #F9F9F9;
+    border-radius: 10px;
+}
+
+.rowBlock{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    background-color: #F9F9F9;
+    border-radius: 15px;
+}
+
+.textBlock{
+    width: 23.25%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.textBlock{
+    color:#143154;
+}
+
+.minimizeBlock{
+    width: 7%;
+    height: 100%;
+}
+
+.buttonBlock{
+    width: 15%;
+    margin-top: 30px;
+}
+
+.addButton {
+    background-color: #F3B02E;
+    color: white; 
+    font-size: 0.62rem;
+    width: 100%;
+  }
+
+  .addButton:hover {
+    background-color: #ffb726;
+    color: #f5f5f5;
+  }
+
+  .disabledButton{
+    background-color: #F3B02E;
+    color: white; 
+    width: 50%;
+    font-size: 0.58rem;
+  }
+
+  .expandBlock{
+    width: 100%;
+    background-color: #F9F9F9;
+    padding-left: 45px ;
+    padding-top: 25px;
+    padding-bottom: 35px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+
+  .expandTextBlock{
+    width: 86%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+  }
+
+  .textHorizontal{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .horizontal{
+    width: 50%;
+  }
+
+  .imageBlock{
+    width: 14%;
+    background-color: #F9F9F9;
+  }
+
+  .image{
+    width: 100%;
+  }
+
+  .desc {
+    width: 100%;
+    word-wrap: break-word;
+}
