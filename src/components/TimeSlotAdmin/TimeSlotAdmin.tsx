@@ -7,7 +7,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useState } from 'react';
 
-export default function TimeSlotAdmin({date,time,currentCapacity,maxCapacity,desc}:{date:Date , time:string , currentCapacity:number , maxCapacity:number, desc:string}){
+export default function TimeSlotAdmin({date,time,currentCapacity,maxCapacity,desc,tid}:{date:Date , time:string , currentCapacity:number , maxCapacity:number, desc:string , tid:string}){
 
     const [expanded, setExpanded] = useState(false);
 

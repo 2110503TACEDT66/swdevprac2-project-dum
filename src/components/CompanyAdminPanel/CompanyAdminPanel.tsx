@@ -33,13 +33,14 @@ export default async function(){
             <div className={styles.fullBlock}>
                 {allCompanies.data.map((company : any) => (
                     
-                    <CompanyAdminBlock key={company.id} compName={company.compName}
+                    <CompanyAdminBlock key={company.id} compName={company.name}
                         website={company.website}
                         tel={company.tel}
                         email={company.email}
                         address={company.address}
-                        desc={company.desc}
+                        desc={company.description}
                         img={'https://drive.usercontent.google.com/download?id=1ZJwdRn4YZWioLHBIpa9zTXMzAsFtcf1k'}
+                        timeslot={company.timeslot}
                     />
                 ))}
             </div>

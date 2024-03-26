@@ -9,7 +9,7 @@ import { useState } from 'react';
 import Image from "next/image";
 import { Button } from '@mui/material';
 
-export default function CompanyAdminBlock({compName,website,tel,email,address,desc,img }:{compName:string,website:string,tel:string,email:string,address:string,desc:string,img:string}){
+export default function CompanyAdminBlock({compName,website,tel,email,address,desc,img,timeslot }:{compName:string,website:string,tel:string,email:string,address:string,desc:string,img:string,timeslot:Object}){
 
     const [expanded, setExpanded] = useState(false);
 
@@ -69,7 +69,7 @@ export default function CompanyAdminBlock({compName,website,tel,email,address,de
                         </div>
                     </div>
                     <div className={styles.session}> Session :</div>
-                    <TimeSlotAdminPanel/>
+                    <TimeSlotAdminPanel companyTimeSlot={timeslot}/>
                 </div>}
             </div>
         </div>
