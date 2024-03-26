@@ -15,7 +15,53 @@ export default function CreateSession() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <div className={styles.fullBlock}>
+        <div className={styles.CreateSession}>
+          <form  name ='newSession' className={styles.CreateSessionCard}>
+              <div className={styles.Grid}>
+    
+              <h2>Description</h2>
+              <div className={styles.InputWrapper}>
+                <input type="text" name="description"  />
+              </div>
+
+              <h2>Capacity</h2>
+              <div className={styles.InputWrapper}>
+                <input type="number"/>
+              </div>
+
+                <h2>Date</h2>
+                <div className={styles.ButtonWrapper}>
+                    <Button>12</Button><Button>34</Button><Button>56</Button><Button>78</Button>
+                </div>
+
+                <div className={styles.tempdiv}>  Time : </div>
+                <div className={styles.PickerWrapper}>
+                  <div className={styles.PickerUnit}>
+                      <h2>Start Time</h2>
+                      <TimePicker slotProps={{ textField: { size: 'small' } }} className={styles.timePicker}defaultValue={dayjs('2022-04-17T15:30')}/>
+                  </div>
+
+                  <div className={styles.PickerUnit}>
+                      <h2>End Time</h2>
+                      <TimePicker slotProps={{ textField: { size: 'small' } }} className={styles.timePicker}defaultValue={dayjs('2022-04-17T15:30')}/>
+                  </div>
+                  
+                </div>
+
+                </div>
+                <div className={styles.SubmitWrapper}><Button>Create new session</Button></div>
+            
+              
+          </form>
+        </div>
+    </LocalizationProvider>
+  );
+}
+
+
+/*
+
+<div className={styles.fullBlock}>
         <div className={styles.topPart}>
           <div className={styles.topicBlock}>
             <div className={styles.date}>Date</div>
@@ -32,7 +78,7 @@ export default function CreateSession() {
                     className={styles.dateButton}
                     style={{
                         backgroundColor: selectedDate === '5/10/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/10/2022' ? 'inset 0 0 0 2px white, 0 0 0 3px #5BA4B4' : 'none'
+                        boxShadow: selectedDate === '5/10/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
                     }}
                     onClick={() => setSelectedDate('5/10/2022')}
                 >
@@ -45,7 +91,7 @@ export default function CreateSession() {
                     className={styles.dateButton}
                     style={{
                         backgroundColor: selectedDate === '5/11/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/11/2022' ? 'inset 0 0 0 2px white, 0 0 0 3px #5BA4B4' : 'none'
+                        boxShadow: selectedDate === '5/11/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
                     }}
                     onClick={() => setSelectedDate('5/11/2022')}
                 >
@@ -58,7 +104,7 @@ export default function CreateSession() {
                     className={styles.dateButton}
                     style={{
                         backgroundColor: selectedDate === '5/12/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/12/2022' ? 'inset 0 0 0 2px white, 0 0 0 3px #5BA4B4' : 'none'
+                        boxShadow: selectedDate === '5/12/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
                     }}
                     onClick={() => setSelectedDate('5/12/2022')}
                 >
@@ -71,7 +117,7 @@ export default function CreateSession() {
                     className={styles.dateButton}
                     style={{
                         backgroundColor: selectedDate === '5/13/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/13/2022' ? 'inset 0 0 0 2px white, 0 0 0 3px #5BA4B4' : 'none'
+                        boxShadow: selectedDate === '5/13/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
                     }}
                     onClick={() => setSelectedDate('5/13/2022')}
                 >
@@ -107,6 +153,5 @@ export default function CreateSession() {
           </div>
         </div>
       </div>
-    </LocalizationProvider>
-  );
-}
+
+*/
