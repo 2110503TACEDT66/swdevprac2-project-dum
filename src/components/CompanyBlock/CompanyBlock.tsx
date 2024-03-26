@@ -9,6 +9,7 @@ import { useState } from 'react';
 import Image from "next/image";
 export default function CompanyBlock({compName,website,tel,email,address,desc,img , timeslot}:{compName:string,website:string,tel:string,email:string,address:string,desc:string,img:string,timeslot:Object}){
 
+    
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpand = () => {
@@ -55,7 +56,7 @@ export default function CompanyBlock({compName,website,tel,email,address,desc,im
                         </div>
                     </div>
                     <div className={styles.session}> Session :</div>
-                    <TimeSlotPanel/>
+                    <TimeSlotPanel companyTimeSlot={timeslot}/>
                 </div>}
             </div>
         </div>

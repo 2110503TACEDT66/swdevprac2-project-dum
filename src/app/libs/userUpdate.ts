@@ -23,7 +23,7 @@ export default async function userUpdate (session : any , newData : Object) {
     return await updateUser.json()
     }
     catch(err) {
-        console.log("return same session")
+        console.error("return same session")
         return session
     }
 

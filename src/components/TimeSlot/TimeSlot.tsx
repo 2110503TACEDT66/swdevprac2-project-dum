@@ -6,29 +6,52 @@ import { IconButton } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useState } from 'react';
+import reserveTimeSlot from '@/app/libs/reserveTimeSlot';
+import { useSession } from 'next-auth/react';
+import getMe from '@/app/libs/getMe';
 
-export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,desc}:{date:Date , time:string , currentCapacity:number , maxCapacity:number , reserv:boolean , desc:string}){
+export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,desc,tid}:{date:Date , time:string , currentCapacity:number , maxCapacity:number , reserv:number , desc:string , tid : string}){
 
     const [expanded, setExpanded] = useState(false);
-
     const toggleExpand = () => {
         setExpanded(!expanded);
     };
 
+    const {data : session , update : updateSession} = useSession()
+
+    async function refreshUserSession() {
+        
+        const thisUser = (await getMe()).data
+        if (!thisUser.token) {
+            thisUser.token = session!.user.token
+        }
+        session!.user = thisUser
+        updateSession(session)
+        
+    }
+
     return(
         <div className={styles.fullBlock}>
             <div className={styles.rowBlock}>
-                <div className={styles.textBlock}>{date.toLocaleDateString()}</div>
+                <div className={styles.textBlock}>{date.toLocaleDateString() + tid}</div>
                 <div className={styles.textBlock}>{time}</div>
                 <div className={styles.textBlock}>Capacity : {currentCapacity}/{maxCapacity}</div>
                 <div className={styles.buttonBlock}> 
                 {
-                    reserv?<Button variant="contained" className={styles.addButton}>
-                        Reserve
+                    reserv == 1 ? <Button variant="contained" className={styles.addButton} onClick={async () => {;  await reserveTimeSlot(tid) ; await refreshUserSession() ; window.location.reload();}}>
+                        Reserve 
                     </Button>:
-                    <Button variant="contained" disabled className={styles.disabledButton}>
-                        Unavailable
-                    </Button>
+                    (reserv == 0 ? <Button variant="contained" disabled className={styles.disabledButton}>
+                        Please Login
+                    </Button>: 
+                    
+                    (reserv == -1 ? <Button variant="contained" disabled className={styles.disabledButton}>
+                    Reserved
+                    </Button> : <Button variant="contained" disabled className={styles.disabledButton}>
+                        Full
+                    </Button> )
+                    
+                    )
                 } 
                 </div>
                 <div className={styles.minimizeBlock}> 

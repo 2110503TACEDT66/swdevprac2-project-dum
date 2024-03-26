@@ -52,12 +52,8 @@ export default  function UserDetailCard () {
                 newData[X.name] = X.value
             });
 
-            console.log(imageBuffer)
-
             const updatedUser = await userUpdate(session , newData)
             
-            console.log(updatedUser)
-
             if (updatedUser.data) {
 
                 updatedUser.data.token = session!.user.token

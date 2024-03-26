@@ -16,8 +16,6 @@ export default function SignIn() {
         const name = document.forms[0]['namee'].value
         const tel = document.forms[0]['tel'].value
 
-        console.log(email , password)
-
         const thisUser = await registerUser(email , password , name , tel)
         if (thisUser) {
             await signIn('credentials' , {

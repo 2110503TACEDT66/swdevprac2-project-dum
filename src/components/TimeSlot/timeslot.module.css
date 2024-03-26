@@ -34,19 +34,24 @@
     background-color: #F3B02E;
     color: white; 
     font-size: 0.62rem;
-    width: 50%;
+    width: 70%;
+    box-shadow: none;
   }
 
   .addButton:hover {
     background-color: #ffb726;
     color: #f5f5f5;
+    box-shadow: none;
+
   }
 
   .disabledButton{
     background-color: #F3B02E;
     color: white; 
-    width: 50%;
+    width: 70%;
     font-size: 0.58rem;
+    box-shadow: none;
+
   }
   
   .description{

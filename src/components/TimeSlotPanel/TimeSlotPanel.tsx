@@ -1,33 +1,30 @@
+'use client'
+
+import { useSession } from "next-auth/react"
 import TimeSlot from "../TimeSlot/TimeSlot"
 import styles from './timeslotpanel.module.css'
 
-export default function TimeSlotPanel(){
+export default function TimeSlotPanel({companyTimeSlot} : {companyTimeSlot : any}){
 
-    const mockTimeslotRepo = [
-        {
-          id: "001",
-          compName: "AunnieInwZa",
-          image: "/Icon/account-black.png",
-          currentCapa: 0,
-          maxCapa: 3,
-          date: new Date('2023-03-24'),
-          time: '14:00',
-          reserv: true,
-          desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,...."
-        },
-        {id: "002",compName: "Aunnoon",image: "/Icon/account-black.png",currentCapa: 2,maxCapa: 5,date: new Date('2023-03-25'),time: '10:30',reserv: false,
-        desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,...."},
-        ];
+    const {data : session} = useSession()
+    function isReserved (timeslotId : string) {
+        for (let i = 0 ; i < session?.user.reservation.length ; i++) {
+            if (timeslotId === session?.user.reservation[i].timeslot)
+                return true
+        }
+
+        return false
+    }
 
     return(
             <div className={styles.fullBlock}>
-                {mockTimeslotRepo.map((timeslot) => (
-                        <TimeSlot currentCapacity={timeslot.currentCapa}
-                            maxCapacity={timeslot.maxCapa}
-                            date={timeslot.date}
-                            time={timeslot.time}
-                            reserv={timeslot.reserv}
-                            desc={timeslot.desc}/>
+                {companyTimeSlot.map((timeslot : any) => (
+                        <TimeSlot tid={timeslot._id} key={timeslot._id} currentCapacity={timeslot.reservation.length}
+                            maxCapacity={timeslot.capacity}
+                            date={new Date(timeslot.date.split('T')[0])}
+                            time={timeslot.startTime + '-' + timeslot.endTime}
+                            reserv={session ? (isReserved(timeslot._id) ? -1 : (timeslot.reservation.length >= timeslot.capacity ? -2 : 1) ) : 0}
+                            desc={timeslot.description}/>
                 ))}
             </div>
     )

@@ -1,7 +1,6 @@
 const backend_url = process.env.BACKEND_URL
 
 export default async function userLogin(userEmail : string , userPassword : string) {
-    console.log(userEmail , userPassword)
     const userToken = await getUserToken(userEmail , userPassword)
 
     const userDetail = await getUserDetail(userToken.token)
@@ -37,6 +36,8 @@ async function getUserDetail (userToken : string) {
         headers : {
             authorization : `Bearer ${userToken}`
         }
+        ,
+        cache : 'no-store'
     })
 
     if (!userDetail)
