@@ -5,7 +5,6 @@ import styles from './page.module.css'
 import ImageList from '@/components/SlideShowImage/SlideShowImage'
 import { Button } from '@mui/material'
 import Footer from '@/components/Footer/Footer'
-import { useSession } from 'next-auth/react'
 
 export default function Landing() {
 
@@ -15,8 +14,6 @@ export default function Landing() {
       setImageIndex((imageIndex + 1) % ImageList.length)
   }, 4000);
 
-  const {data : session} = useSession()
-  console.log(session)
   return (
       <div className={styles.Landing}>
         <section className={styles.LandingSec1}>
