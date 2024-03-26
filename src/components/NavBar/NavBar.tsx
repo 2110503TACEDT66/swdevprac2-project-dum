@@ -39,7 +39,7 @@ export default async function NavBar () {
             <div className={styles.NavBarContainer}>
 
             <Link className={styles.NavBarLogoPic} href="/">
-                <div>LOGO</div>
+                <div><img src='/Icon/logo.png' alt='Logo image' className={styles.image}/></div>
             </Link>
                 
                 <div className={styles.NavBarButtonWrapper}>

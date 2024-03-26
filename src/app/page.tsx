@@ -22,7 +22,7 @@ export default function Landing() {
             <div className={styles.LandingCoverTextWrapper}>
               <h1>CEDT Online Job Fair 2022</h1>
               <h2>Look for your own opportunities.</h2>
-              <Button className={styles.LandingCoverButton}>Sign up / Sign in</Button>
+              <Button className={styles.LandingCoverButton}>Get started</Button>
             </div>
           </div>
         </section>
