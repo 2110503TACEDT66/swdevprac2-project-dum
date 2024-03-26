@@ -44,19 +44,56 @@
 }
 
 .imgBlock{
-    width: 20%;
+    width: 40%;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: center;
 }
 
-.compLogo{
+.buttonBlock{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.editButton , .deleteButton{
+    background-color: #F3B02E;
+    color: white; 
+    font-size: 0.62rem;
+    width: 40%;
+    margin-right: 10%;
+    margin-bottom: 10px;
+}
+
+.editButton:hover , .deleteButton:hover {
+    background-color: #ffb726;
+    color: #f5f5f5;
+  }
+
+  .editButton{
+    background-color: #F3B02E;
+  }
+
+  .deleteButton{
+    background-color: #ED9F08;
+  }
+
+.compLogo{
+    width: 50%;
     aspect-ratio: 1;
     height: auto;
     margin-right: 10%;
     border-radius: 15px;
+}
+
+.logoBlock{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .bottomPart{

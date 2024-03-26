@@ -7,6 +7,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useState } from 'react';
 import Image from "next/image";
+import { Button } from '@mui/material';
+
 export default function CompanyAdminBlock({compName,website,tel,email,address,desc,img }:{compName:string,website:string,tel:string,email:string,address:string,desc:string,img:string}){
 
     const [expanded, setExpanded] = useState(false);
@@ -29,9 +31,21 @@ export default function CompanyAdminBlock({compName,website,tel,email,address,de
                         <div className={styles.compDesc}>{desc}</div>
                     </div>
                     <div className={styles.imgBlock}>
-                        <Image width={0} height={0} sizes="100vh" src={img} alt="company logo" className={styles.compLogo}/>
+                        {
+                            expanded &&
+                            <div className={styles.buttonBlock}>
+                                <Button variant="contained" className={styles.editButton}>
+                                    Edit Company
+                                </Button>
+                                <Button variant="contained" className={styles.deleteButton}>
+                                    Delete Company
+                                </Button>
+                            </div>
+                        }
+                        <div className={styles.logoBlock}>
+                            <Image width={0} height={0} sizes="100vh" src={img} alt="company logo" className={styles.compLogo}/>
+                        </div>
                     </div>
-                    
                 </div>
                 {expanded &&<div className={styles.bottomPart}>
                     <div className={styles.bottomTextBlock}>
