@@ -11,7 +11,7 @@ import createNewTimeSlot from '@/app/libs/createNewTimeSlot';
 
 export default function CreateSession() {
 
-  const [selectedDate, setSelectedDate] = useState('10');
+  const [selectedDate, setSelectedDate] = useState('');
   const [startTimeValue , setStartTimeValue] = useState(dayjs('2022-04-17T15:30'))
   const [endTimeValue , setEntTimeValue] = useState(dayjs('2022-04-17T15:30'))
   async function createTimeSlot() {
