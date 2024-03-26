@@ -2,7 +2,7 @@ import BookingDelete from '../BookingDeleteBlock/BookingDeleteBlock'
 import BookingDeletePanel from '../BookingDeletePanel/BookingDeletePanel'
 import styles from './bookingBlock.module.css'
 
-export default function BookingBlock({userName, tel, email} : {userName:string, tel:string, email:string}) {
+export default function BookingBlock({userName, tel, email , reserv} : {userName:string, tel:string, email:string , reserv:object} ) {
     return (
         
             
@@ -14,7 +14,7 @@ export default function BookingBlock({userName, tel, email} : {userName:string, 
                             <div className={styles.detail}>{email}</div>
                         </div>
                         
-                        <BookingDeletePanel/>
+                        <BookingDeletePanel reserv={reserv}/>
                     </div>
                 </div>
         

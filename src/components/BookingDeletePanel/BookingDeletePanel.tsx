@@ -24,16 +24,25 @@ import styles from './bookingDeletePanel.module.css'
       ];
 
 
-export default function BookingDeletePanel(){
+export default function BookingDeletePanel({reserv}:{reserv:any}){
     return(
         <div className={styles.mock}>
             <div className={styles.fullBlock}>
-            {mockTimeslotRepo.map((timeslot) => (
+            {/* {mockTimeslotRepo.map((timeslot) => (
                 <div className={styles.companyIntBlock}>
                     <BookingDeleteBlock
                     compName={timeslot.compName}
                     date={timeslot.date}
                     time={timeslot.time}
+                    />
+                </div>
+            ))} */}
+            {reserv.map((reservation:any) => (
+                <div className={styles.companyIntBlock}>
+                    <BookingDeleteBlock
+                    compName={reservation.timeslot.company}
+                    date={reservation.timeslot.date}
+                    time={reservation.timeslot.time}
                     />
                 </div>
             ))}
