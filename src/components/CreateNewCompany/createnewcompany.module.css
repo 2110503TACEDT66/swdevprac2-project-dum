@@ -1,10 +1,21 @@
+.fullPage {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 18% 2% 18%;
+
+  box-sizing: border-box;
+}
+
 .fullBlock {
-    padding: 25px 32.5px;
+    padding: 2% 2%;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     background-color: #D7F2F7;
     /* width: 60vw; */
+    width: 100%;
   }
 
   .topPart{

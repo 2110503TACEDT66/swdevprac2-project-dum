@@ -7,6 +7,7 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 export default function CreateNewCompany() {
     
     return (
+        <div className={styles.fullPage}>
         <div className={styles.fullBlock}>
             <div className={styles.topPart}>
                 <div className={styles.imageBlock}>
@@ -83,6 +84,7 @@ export default function CreateNewCompany() {
                     </Button>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
