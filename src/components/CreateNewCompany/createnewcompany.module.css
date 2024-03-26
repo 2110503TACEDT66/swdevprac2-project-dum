@@ -1,0 +1,16 @@
+.fullBlock {
+    padding: 25px 32.5px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D7F2F7;
+  }
+
+  .topPart{
+    background-color: #FFFEFE;
+    display: flex;
+    flex-direction: row;
+    padding: 25px 55px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }

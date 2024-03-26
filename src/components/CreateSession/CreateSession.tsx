@@ -100,7 +100,11 @@ export default function CreateSession() {
           </div>
         </div>
         <div className={styles.botPart}>
-          <div></div>
+          <div className={styles.createButtonBlock}>
+            <Button variant="contained" className={styles.addButton}>
+                Create new session
+            </Button>
+          </div>
         </div>
       </div>
     </LocalizationProvider>
