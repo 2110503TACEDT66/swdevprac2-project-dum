@@ -5,6 +5,8 @@
     overflow: hidden;
     position: relative;
     font-family: 'Poppins';
+
+    font-size: 18px;
 }
 
 .SignUpPage {
@@ -204,4 +206,51 @@
 
 .SignInForm input[type='email'] , .SignInForm input[type='password'] {
     padding-left: 5%;
+}
+
+.CheckboxWrapper {
+    height: 4.5vh;
+    width: 25vw;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center ;
+    gap: 3%;
+}
+
+.CheckboxWrapper input {
+    margin-top: 0;
+    width: 5%;
+    border: solid 1px;
+    border-color: #1D8BA3;
+    background-color: #1D8BA3;
+    
+}
+
+.CheckboxWrapper input[type="checkbox"] {
+    outline: none;
+    border-color: #1D8BA3;
+
+    accent-color: #1D8BA3
+}
+
+.CheckboxWrapper label {
+    display: flex;
+    align-items: center;
+    color: #1D8BA3;
+}
+
+.SignUpButton {
+    background-color: #F3B02E;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.SignInButton {
+    background-color: #62C1D5;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
 }

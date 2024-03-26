@@ -1,3 +1,5 @@
+'use client'
+import { useSession } from 'next-auth/react'
 import CreateSession from '../CreateSession/CreateSession'
 import SessionPanel from '../SessionPanel/SessionPanel'
 import styles from './companyprofile.module.css'

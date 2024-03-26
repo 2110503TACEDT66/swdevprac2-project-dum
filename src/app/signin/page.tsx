@@ -30,10 +30,11 @@ export default function SignIn() {
 
         const email = document.forms[1]['email'].value
         const password = document.forms[1]['password'].value
-
+        const isCompany = document.forms[1]['isCompany'].checked
         await signIn('credentials' , {
             email : email,
             password : password,
+            isCompany : isCompany,
             callbackUrl : '/'
         })
 
@@ -59,7 +60,7 @@ export default function SignIn() {
                             <input type="password"  name="password" placeholder='Password' required/>
                             <input type="text" name="namee" placeholder='Name Lastname (Optional)' />
                             <input type="tel" name="tel" placeholder='Telephone Number (Optional)' />
-                            <input type="submit" value="Sign Up" onClick={() => {SignUpClickHandler();}}/>
+                            <input className={styles.SignUpButton} type="submit" value="Sign Up" onClick={() => {SignUpClickHandler();}}/>
                         </form>
                 </div>
                 <div className={(state? styles.SignInPageExpand : styles.SignInPage)}>
@@ -67,7 +68,12 @@ export default function SignIn() {
                     <form onSubmit={(e) => {e.preventDefault();}} name="SignIn" className={styles.SignInForm}>
                         <input type="email" name="email" placeholder='Email' required/>
                         <input type="password"  name="password" placeholder='Password' required/>
-                        <input type="submit" value="Sign In" onClick={() => {SignInClickHandler() ;}}/>
+                        <div className={styles.CheckboxWrapper}>
+                            <input type="checkbox" name="isCompany" />
+                            <label>Sign In as Company</label>
+                        </div>
+                        
+                        <input className={styles.SignInButton} type="submit" value="Sign In" onClick={() => {SignInClickHandler() ;}}/>
                     </form>
                 </div>
             </div>
