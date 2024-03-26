@@ -76,7 +76,7 @@ export default  function UserDetailCard () {
 
         const inpForm = document.forms[0]
             Array.from(inpForm).forEach((X : any)  => {
-                X.disabled = false
+                X.disabled = true
             });
 
 
