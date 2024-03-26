@@ -4,9 +4,10 @@ import { useSession } from 'next-auth/react'
 import styles from './userreservationcard.module.css'
 import Image from 'next/image'
 import getUserReservation from '@/app/libs/getUserReservation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import deleteReservation from '@/app/libs/deleteReservation'
 const backend_url = process.env.BACKEND_URL
+import getMe from '@/app/libs/getMe'
 
 function ReservationBlock ({reservation} : {reservation : any}) {
 
@@ -50,8 +51,8 @@ function ReservationBlock ({reservation} : {reservation : any}) {
     }
 }
 
-export default function UserReservationCard ({reservationArray} : {reservationArray : Array<Object>}) {
-
+export default async function UserReservationCard ({reservationArray} : {reservationArray : Array<Object>}) {
+        
         return (
         <div className={styles.Card}>
             <h2 className={styles.ReservationHeader}>Your Reservation</h2>

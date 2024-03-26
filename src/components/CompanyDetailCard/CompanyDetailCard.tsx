@@ -54,7 +54,6 @@ export default  function CompanyDetailCard () {
 
             const updatedCompany = await companyUpdate(session , newData)
             
-            console.log(updatedCompany)
 
             if (updatedCompany.data) {
 
@@ -68,7 +67,6 @@ export default  function CompanyDetailCard () {
                 }
                 
                 sessionUpdate(session)
-                console.log(session)
             }
             
 

@@ -12,6 +12,10 @@ export default function TestAttendee(){
             <div className={styles.Sec2}>
                 <CreateSession/>
             </div>
+
+            <div className={styles.Sec3}>
+                
+            </div>
         </div>
         
     )

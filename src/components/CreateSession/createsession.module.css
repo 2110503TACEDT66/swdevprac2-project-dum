@@ -67,6 +67,10 @@
   outline: 2px solid #F3B02E
 } 
 
+.SelectedButton {
+  outline: 3px solid #e668ff;
+}
+
 .PickerWrapper {
 
   height: 100%;
