@@ -1,13 +1,13 @@
 'use client'
 
-import TimeSlotPanel from "../TimeSlotPanel/TimeSlotPanel";
-import styles from './companyblock.module.css'
+import TimeSlotPanelCompany from '../TimeSlotPanelCompany/TimeSlotPanelCompany';
+import styles from './companyCompblock.module.css'
 import { IconButton } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useState } from 'react';
 import Image from "next/image";
-export default function CompanyBlock({compName,website,tel,email,address,desc,img , timeslot}:{compName:string,website:string,tel:string,email:string,address:string,desc:string,img:string,timeslot:Object}){
+export default function CompanyCompBlock({compName,website,tel,email,address,desc,img , timeslot}:{compName:string,website:string,tel:string,email:string,address:string,desc:string,img:string,timeslot:Object}){
 
     const [expanded, setExpanded] = useState(false);
 
@@ -55,7 +55,7 @@ export default function CompanyBlock({compName,website,tel,email,address,desc,im
                         </div>
                     </div>
                     <div className={styles.session}> Session :</div>
-                    <TimeSlotPanel companyTimeSlot={timeslot}/>
+                    <TimeSlotPanelCompany companyTimeSlot={timeslot}/>
                 </div>}
             </div>
         </div>
