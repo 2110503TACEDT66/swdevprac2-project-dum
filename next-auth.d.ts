@@ -12,5 +12,17 @@ declare module "next-auth" {
             reservation: Array,
             token : string
         }
+        company : {
+            _id : string,
+            name: string,
+            address: string,
+            website: string,
+            description: string,    
+            tel: string,
+            contact_email: string,
+            size: string,
+            imageurl: string,
+            timeslot: Array
+        }
     }
 }

@@ -33,7 +33,7 @@ export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,d
     return(
         <div className={styles.fullBlock}>
             <div className={styles.rowBlock}>
-                <div className={styles.textBlock}>{date.toLocaleDateString() + tid}</div>
+                <div className={styles.textBlock}>{date.toLocaleDateString()}</div>
                 <div className={styles.textBlock}>{time}</div>
                 <div className={styles.textBlock}>Capacity : {currentCapacity}/{maxCapacity}</div>
                 <div className={styles.buttonBlock}> 

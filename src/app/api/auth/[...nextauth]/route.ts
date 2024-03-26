@@ -58,7 +58,11 @@ export const authOptions : AuthOptions = {
             return {...token , ...user} 
         } , 
         async session({session , token , user} : {session : any , token : JWT , user : AdapterUser}) {
-     
+            
+            const data : any = token.data
+            const role : any = data.role
+            if (role === 'company')
+                session.company = token.data
             session.user = token.data
 
             return session
