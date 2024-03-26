@@ -26,13 +26,11 @@
     flex-direction: column;
     padding: 20px 45px 20px 10px;
     border-radius: 10px;
-    height: 280px;
     width: 900px;
     margin-bottom: 25px;
 }
 
 .detailBlock {
-    background-color: white;
     color: #2D4057;
     display: flex;
     flex-direction: column;
@@ -42,12 +40,25 @@
 .infoBlock {
     display: flex;
     flex-direction: row;
+    padding-left : 15px;
 }
 
-.detail {
-    display: flex;
-    margin-left: 20px;
-    align-items: center;
-    width: 210px;
+.cover{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+}
+
+.userName{
+    width: 40%;
+}
+
+.tel{
+    width: 25%;
+}
+
+.email{
+    width: 25%;
 }
 

@@ -17,31 +17,43 @@
     flex-direction: row;
 }
 
-.reserveDetail {
-    width: 250px;
+.date , .time , .compName{
     display: flex;
     align-items: center;
 }
 
+.compName{
+  width: 40%;
+  /* background-color: green; */
+}
+
+.date{
+  width: 25%;
+
+}
+
+.time{
+  width: 25%;
+  /* background-color: antiquewhite; */
+}
+
+.buttonBlock {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* centers vertically */
+  width: 10%;
+  /* background-color: red; */
+}
+
+
 .deleteButton{
-    background-color: #F3B02E;
+    background-color: #FFAD0F;
     color: white; 
     font-size: 0.62rem;
-    /* width: 40%; */
-
-    margin-right: 10%;
-    margin-bottom: 10px;
+    width: 50%;
 }
 
 .deleteButton:hover {
     background-color: #ffb726;
     color: #f5f5f5;
-  }
-
-  .editButton{
-    background-color: #F3B02E;
-  }
-
-  .deleteButton{
-    background-color: #ED9F08;
   }

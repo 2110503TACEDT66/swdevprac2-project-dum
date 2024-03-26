@@ -15,7 +15,7 @@ export default async function getAllUser () {
         }
     })
     
-    console.log(allUser)
+    // console.log(allUser)
     
     return await allUser.json()
 
