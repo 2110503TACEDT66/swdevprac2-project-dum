@@ -2,6 +2,7 @@ import CompanyProfile from "@/components/CompanyProfile/CompanyProfile"
 import CompanyDetailCard from "@/components/CompanyDetailCard/CompanyDetailCard"
 import styles from './page.module.css'
 import CreateSession from "@/components/CreateSession/CreateSession"
+import CompanyTimeSlot from "@/components/CompanyTimeSlot/ConpanyTimeSlot"
 export default function TestAttendee(){
     return(
         <div>
@@ -11,6 +12,10 @@ export default function TestAttendee(){
 
             <div className={styles.Sec2}>
                 <CreateSession/>
+            </div>
+
+            <div className={styles.Sec3}>
+                <CompanyTimeSlot/>
             </div>
         </div>
         

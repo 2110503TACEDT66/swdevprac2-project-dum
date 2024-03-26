@@ -30,6 +30,7 @@ export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,d
         
     }
 
+
     return(
         <div className={styles.fullBlock}>
             <div className={styles.rowBlock}>

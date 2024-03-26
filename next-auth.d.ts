@@ -22,7 +22,8 @@ declare module "next-auth" {
             contact_email: string,
             size: string,
             imageurl: string,
-            timeslot: Array
+            timeslot: Array,
+            token : string
         }
     }
 }

@@ -7,11 +7,31 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
+import createNewTimeSlot from '@/app/libs/createNewTimeSlot';
 
 export default function CreateSession() {
 
-    const [selectedDate, setSelectedDate] = useState('5/10/2022');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [startTimeValue , setStartTimeValue] = useState(dayjs('2022-04-17T15:30'))
+  const [endTimeValue , setEntTimeValue] = useState(dayjs('2022-04-17T15:30'))
+  async function createTimeSlot() {
+    
+    const description = document.forms[1]['description'].value
+    const capacity = document.forms[1]['capacity'].value
+    const date = '2022-05-' + selectedDate 
+    const startTimeValuee : any = startTimeValue
+    const endTimeValuee : any = endTimeValue
 
+    const startTime = (startTimeValuee.$H) + ':' + (startTimeValuee.$m)
+    const endTime = (endTimeValuee.$H) + ':' + (endTimeValuee.$m)
+
+    console.log(description , capacity , date , startTime , endTime)
+    
+    const newTimeSlot =  await createNewTimeSlot(date , startTime , endTime , capacity , description)
+
+    console.log(newTimeSlot)
+
+  }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -26,30 +46,30 @@ export default function CreateSession() {
 
               <h2>Capacity</h2>
               <div className={styles.InputWrapper}>
-                <input type="number"/>
+                <input type="number" name='capacity' />
               </div>
 
                 <h2>Date</h2>
                 <div className={styles.ButtonWrapper}>
-                    <Button>12</Button><Button>34</Button><Button>56</Button><Button>78</Button>
+                    <Button className={selectedDate == '10' ? styles.SelectedButton : ''} onClick={() => setSelectedDate('10')}>10/05/2022</Button><Button className={selectedDate == '11' ? styles.SelectedButton : ''} onClick={() => setSelectedDate('11')}>11/05/2022</Button><Button className={selectedDate == '12' ? styles.SelectedButton : ''}onClick={() => setSelectedDate('12')}>12/05/2022</Button><Button className={selectedDate == '13' ? styles.SelectedButton : ''} onClick={() => setSelectedDate('13')}>13/05/2022</Button>
                 </div>
 
                 <div className={styles.tempdiv}>  Time : </div>
                 <div className={styles.PickerWrapper}>
                   <div className={styles.PickerUnit}>
                       <h2>Start Time</h2>
-                      <TimePicker slotProps={{ textField: { size: 'small' } }} className={styles.timePicker}defaultValue={dayjs('2022-04-17T15:30')}/>
+                      <TimePicker value={startTimeValue} onChange={(newValue : any) => {setStartTimeValue(newValue)}} ampm={false} slotProps={{ textField: { size: 'small' } }} className={styles.timePicker}/>
                   </div>
 
                   <div className={styles.PickerUnit}>
                       <h2>End Time</h2>
-                      <TimePicker slotProps={{ textField: { size: 'small' } }} className={styles.timePicker}defaultValue={dayjs('2022-04-17T15:30')}/>
+                      <TimePicker value={endTimeValue} onChange={(newValue : any) => setEntTimeValue(newValue)} ampm={false} slotProps={{ textField: { size: 'small' } }} className={styles.timePicker} />
                   </div>
                   
                 </div>
 
                 </div>
-                <div className={styles.SubmitWrapper}><Button>Create new session</Button></div>
+                <div onClick={() => {createTimeSlot()}} className={styles.SubmitWrapper}><Button>Create new session</Button></div>
             
               
           </form>

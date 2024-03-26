@@ -15,10 +15,8 @@ export default async function ProfilePage () {
     if (session && session.company) {
         redirect('/c/profile')
     }
-
     const reservationArray : Array<Object> = await getUserReservation()
 
-    
     return (
         <div>
             <section className={styles.Sec1}>

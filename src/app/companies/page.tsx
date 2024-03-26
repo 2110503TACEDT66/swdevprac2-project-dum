@@ -11,7 +11,6 @@ export default function CompanyPage() {
     return (
         
             <CompanyPanel/>
-        
-        
+         
     )
 }

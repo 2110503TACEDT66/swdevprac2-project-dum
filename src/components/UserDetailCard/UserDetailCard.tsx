@@ -61,8 +61,8 @@ export default  function UserDetailCard () {
 
                 if (imageBuffer)
                     session!.user.imageurl = imageBuffer
-                
                 sessionUpdate(session)
+                
             }
             
 
