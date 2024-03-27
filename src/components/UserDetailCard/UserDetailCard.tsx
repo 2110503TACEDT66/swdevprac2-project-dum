@@ -76,11 +76,12 @@ export default  function UserDetailCard ({userData} : {userData : any}) {
                     <h2>Your Profile</h2>
                 </div>
 
-                <div className={state == 1 ? styles.RightTopBlock : styles.RightTopBlockOneItem}>
+                    {userData.data.role === 'user' ? <div className={state == 1 ? styles.RightTopBlock : styles.RightTopBlockOneItem}>
                     
                     {state == 1 ? <button onClick={() => {imageBuffer = prompt('Enter Picture URL')}}>Change Picture</button> : ''}
                     <button onClick={updateClickHandler} className={styles.SaveButton}>{state == 0 ? 'Edit' : 'Save'}</button>
-                </div>
+                </div>:'' }
+                    
                 
             </div>
 

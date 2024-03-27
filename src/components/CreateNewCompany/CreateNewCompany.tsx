@@ -1,19 +1,55 @@
+'use client'
+
 import styles from './createnewcompany.module.css'
 import { Button, TextField } from '@mui/material';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { IconButton } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import { useState } from 'react';
+import createNewCompany from '@/app/libs/createNewCompany';
 
-export default function CreateNewCompany() {
+export default function CreateNewCompany({user} : {user : any}) {
     
+    const [name , setName] = useState('')
+    const [website , setWebsite] = useState('')
+    const [tel , setTel] = useState('')
+    const [login_email , setLoginEmail] = useState('')
+    const [contact_email , setContactEmail] = useState('')
+    const [description , setDescription] = useState('')
+    const [password , setPassword] = useState('')
+    const [imageurl , setImageUrl] = useState('https://lh3.googleusercontent.com/d/1fEupp6pabESavw2XvXXmYRpK46vLf2Ea')
+
+    async function createCompanyHandler () {
+
+        
+       if (!imageurl)
+            setImageUrl('https://lh3.googleusercontent.com/d/1fEupp6pabESavw2XvXXmYRpK46vLf2Ea')
+            
+       const companyData =  {
+            name : name,
+            website : website,
+            tel : tel,
+            description : description,
+            contact_email : contact_email,
+            login_email: login_email,
+            password : password,
+            imageurl : imageurl
+        }
+
+        const newCompany = await createNewCompany(user , companyData)
+
+        if (newCompany && newCompany.success == true) 
+            window.location.reload()
+    }
+
     return (
         <div className={styles.fullPage}>
         <div className={styles.fullBlock}>
             <div className={styles.topPart}>
                 <div className={styles.imageBlock}>
-                    <img src='/Icon/account-black.png' alt='Profile picture' className={styles.image}/>
+                    <img src={imageurl} alt='Profile x picture' className={styles.image}/>
                     <div className={styles.iconBlock}>
-                    <IconButton aria-label="edit">
+                    <IconButton onClick={() => {const newImage = prompt('New Image Url') ; if (newImage){setImageUrl(newImage)}}} aria-label="edit">
                         <PhotoCameraIcon className={styles.cameraButton}/>
                     </IconButton> 
                     </div>
@@ -24,7 +60,7 @@ export default function CreateNewCompany() {
                             Name
                         </div>
                         <div className={styles.inputBlock}>
-                            <TextField id="name" variant="standard" className={styles.textField}/>
+                            <TextField value={name} onChange={(newValue) => {setName(newValue.target.value)}} id="name" variant="standard" className={styles.textField}/>
                         </div>
                     </div>
                     <div className={styles.rowBlock}>
@@ -32,7 +68,7 @@ export default function CreateNewCompany() {
                             Website
                         </div>
                         <div className={styles.inputBlock}>
-                            <TextField id="website" variant="standard" className={styles.textField}/>
+                            <TextField value={website} onChange={(newValue) => {setWebsite(newValue.target.value)}} id="website" variant="standard" className={styles.textField}/>
                         </div>
                     </div>
                     <div className={styles.rowBlock}>
@@ -40,23 +76,7 @@ export default function CreateNewCompany() {
                             Tel. number
                         </div>
                         <div className={styles.inputBlock}>
-                            <TextField id="tel" variant="standard" className={styles.textField}/>
-                        </div>
-                    </div>
-                    <div className={styles.rowBlock}>
-                        <div className={styles.topicBlock}>
-                            Sign-up Email
-                        </div>
-                        <div className={styles.inputBlock}>
-                            <TextField id="signupemail" variant="standard" className={styles.textField}/>
-                        </div>
-                    </div>
-                    <div className={styles.rowBlock}>
-                        <div className={styles.topicBlock}>
-                            Contact Email
-                        </div>
-                        <div className={styles.inputBlock}>
-                            <TextField id="contactemail" variant="standard" className={styles.textField}/>
+                            <TextField value={tel} onChange={(newValue) => {setTel(newValue.target.value)}} id="tel" variant="standard" className={styles.textField}/>
                         </div>
                     </div>
                     <div className={styles.rowBlock}>
@@ -64,7 +84,23 @@ export default function CreateNewCompany() {
                             Description
                         </div>
                         <div className={styles.inputBlock}>
-                            <TextField id="desc" variant="standard" className={styles.textField}/>
+                            <TextField value={description} onChange={(newValue) => {setDescription(newValue.target.value)}} id="desc" variant="standard" className={styles.textField}/>
+                        </div>
+                    </div>
+                    <div className={styles.rowBlock}>
+                        <div className={styles.topicBlock}>
+                            Contact Email
+                        </div>
+                        <div className={styles.inputBlock}>
+                            <TextField value={contact_email} onChange={(newValue) => {setContactEmail(newValue.target.value)}} id="contactemail" variant="standard" className={styles.textField}/>
+                        </div>
+                    </div>
+                    <div className={styles.rowBlock}>
+                        <div className={styles.topicBlock}>
+                            Sign-up Email
+                        </div>
+                        <div className={styles.inputBlock}>
+                            <TextField value={login_email} onChange={(newValue) => {setLoginEmail(newValue.target.value)}} id="signupemail" variant="standard" className={styles.textField}/>
                         </div>
                     </div>
                     <div className={styles.rowBlock}>
@@ -72,14 +108,16 @@ export default function CreateNewCompany() {
                             Password
                         </div>
                         <div className={styles.inputBlock}>
-                            <TextField id="password" type="password" variant="standard" className={styles.textField}/>
+                            <TextField value={password} onChange={(newValue) => {setPassword(newValue.target.value)}} id="password" type="password" variant="standard" className={styles.textField}/>
                         </div>
                     </div>
+                    
+                    
                 </div>
             </div>
             <div className={styles.botPart}>
                 <div className={styles.buttonBlock}>
-                    <Button variant="contained" className={styles.addButton}>
+                    <Button onClick={async () => { await createCompanyHandler()}} variant="contained" className={styles.addButton}>
                         Create new Company
                     </Button>
                 </div>

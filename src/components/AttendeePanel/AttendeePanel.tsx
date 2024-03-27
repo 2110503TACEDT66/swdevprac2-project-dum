@@ -7,19 +7,15 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useState } from 'react';
 
-export default function AttendeePanel(){
+export default function AttendeePanel({reservation} : {reservation : any}){
 
-    const mockAttendee = [{name:"Aun",tel:"099-999-9999",email:"aunaunaun@gmail.com"},
-    {name:"Chai",tel:"099-999-9999",email:"chaichaichai@gmail.com"},
-    {name:"Ten",tel:"099-999-9999",email:"tententen@gmail.com"}
-    ]
 
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpand = () => {
-        setExpanded(!expanded);
+        if (reservation.length != 0)
+            setExpanded(!expanded);
     };
-
     return(
     
             <div className={styles.fullBlock}>
@@ -28,7 +24,7 @@ export default function AttendeePanel(){
                         <div className={styles.Heading}>Attendee :</div>
                     }
                     {!expanded &&
-                        <div className={styles.numbersOfAttendee}> {mockAttendee.length} attendees in this session </div>
+                        <div className={styles.numbersOfAttendee}> {reservation.length} attendees in this session </div>
                     }
                     
 
@@ -40,12 +36,12 @@ export default function AttendeePanel(){
                 </div>
                 {expanded && (
                     <>
-                    {mockAttendee.map((attendee) => (
+                    {reservation.map((attendee : any) => (
                         <Attendee
-                        key={attendee.email}
-                        name={attendee.name}
-                        tel={attendee.tel}
-                        email={attendee.email}
+                        key={attendee.user.email ? attendee.user.email : 'unknow email'}
+                        name={attendee.user.name ? attendee.user.name : 'unknow name'}
+                        tel={attendee.user.tel ? attendee.user.tel : 'unknow tel'}
+                        email={attendee.user.email}
                         />
                     ))}
                     </>

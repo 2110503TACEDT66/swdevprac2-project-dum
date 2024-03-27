@@ -11,7 +11,6 @@ import updateTimeSlot from '@/app/libs/updateTimeSlot';
 
 
 export default function SessionBlock({timeslot , user}:{timeslot : any , user : any}){
-
     const [value , setValue] = useState(timeslot.description)
     const [isEdit , setEdit] = useState(false)
     const formm : any = useRef(null)
@@ -50,7 +49,7 @@ export default function SessionBlock({timeslot , user}:{timeslot : any , user : 
             <input ref={formm} disabled onChange={(e : any) => setValue(e.target.value)} type='text' className={styles.DescInp} value={value}/> 
 
         
-            <AttendeePanel/>
+            <AttendeePanel reservation = {timeslot.reservation} />
             <div className={styles.buttonBlock}> 
                 <Button onClick ={async () => {await editHandler()}} className={isEdit? styles.blockButtonConfirm : styles.blockButton }>{isEdit? 'Save' : 'Edit session'}</Button>
                 <Button onClick = {async () => {await deleteTimeSlot(user , timeslot._id)}} className={styles.blockButtonDelete}>

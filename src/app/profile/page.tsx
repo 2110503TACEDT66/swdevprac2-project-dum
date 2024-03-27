@@ -16,7 +16,6 @@ export default async function ProfilePage () {
     if (session && session.user.role === 'company') {
         redirect('/c/profile')
     }
-
     const userData = await getUserData(session)
     userData.token = session?.user.token
 
@@ -26,9 +25,10 @@ export default async function ProfilePage () {
                 <UserDetailCard userData={userData}/>
             </section>
 
-            <section className={styles.Sec2}>
+            {userData.data.role === 'user' ?<section className={styles.Sec2}>
                 <UserReservationCard userData={userData}/>
-            </section>
+            </section> : ''}
+            
 
             <section className={styles.Sec3}>
                 <LogoutButton/>

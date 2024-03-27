@@ -12,7 +12,7 @@ import { revalidateTag } from 'next/cache'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { setEngine } from 'crypto'
-
+import { redirect } from 'next/navigation'
 export default async function CompanyPage() {
 
     const session = await getServerSession(authOptions)
@@ -22,10 +22,10 @@ export default async function CompanyPage() {
 
     const thisUser = await getUserData(session)
 
-
+    if (thisUser.data.role === 'admin')
+        redirect('/a/companies')
 
     revalidateTag('allCompanies')
-
     return (
         
             <CompanyPanel allCompanies = {allCompanies} thisUser = {thisUser}/>
