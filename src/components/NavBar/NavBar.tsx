@@ -28,9 +28,7 @@ export function NavBarButton ({text , link , imgSrc} : {text? : string , link : 
 
 export default async function NavBar () {
 
-    const session = await getServerSession(authOptions)
-
-    const userData = await getUserData(session)
+    const userData = await getUserData()
 
     let  userImageUrl : string = ''
 
@@ -48,7 +46,7 @@ export default async function NavBar () {
                 <div className={styles.NavBarButtonWrapper}>
                     <NavBarButton link= '/companies' text='Companies'/>
                     {
-                    session ? 
+                    userData ? 
                     <NavBarButton link='/profile' imgSrc={userImageUrl}></NavBarButton> 
                     : <NavBarButton link='/api/auth/signin' text='Sign-In'/>}
                     
