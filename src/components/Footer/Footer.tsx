@@ -10,7 +10,7 @@ export default function Footer() {
         <div className={styles.rightTextBox}>
           <div className={styles.contactItem}>
             <span className={styles.icon}>&#9993;</span>
-            <span>xxxxx@gmail.com</span>
+            xxxxx@gmail.com
           </div>
           <div className={styles.contactItem}>
             <span className={styles.icon}>&#9742;</span>
