@@ -12,7 +12,6 @@ export default async function deleteTimeSlot (user : any , timeslotId : string) 
             authorization : `Bearer ${user.data.token}`
         }
     })
-
     if (!deleteTimeSlot.ok)
         return null
     

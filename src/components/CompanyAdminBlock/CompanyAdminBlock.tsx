@@ -9,7 +9,6 @@ import { useState } from 'react';
 import Image from "next/image";
 import { Button } from '@mui/material';
 import { useRef } from 'react';
-import deleteCompany from '@/app/libs/deleteCompany';
 
 export default function CompanyAdminBlock({company , user}:{company : any , user : any}){
 

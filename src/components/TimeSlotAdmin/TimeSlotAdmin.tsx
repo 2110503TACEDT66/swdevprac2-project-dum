@@ -7,6 +7,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useEffect, useRef, useState } from 'react';
 import updateTimeSlot from '@/app/libs/updateTimeSlot';
+import deleteTimeSlot from '@/app/libs/deleteTimeSlot';
 
 export default function TimeSlotAdmin({timeslot , company , user} : {timeslot : any  , company : any, user : any}){
     const [edited , setEdited] = useState(false)
@@ -45,7 +46,7 @@ export default function TimeSlotAdmin({timeslot , company , user} : {timeslot : 
                         </Button>
                     </div>
                     <div className={styles.deleteBlock}>
-                        <Button variant="contained" className={styles.deleteButton}>
+                        <Button onClick={async () => {const tmpUser = user ; tmpUser.data._id = company._id ;  await deleteTimeSlot(tmpUser , timeslot._id)}} variant="contained" className={styles.deleteButton}>
                             Delete
                         </Button>
                     </div>

@@ -6,6 +6,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import getUserData from '@/app/libs/getUserData'
+import { redirect } from 'next/navigation'
 
 export function NavBarButton ({text , link , imgSrc} : {text? : string , link : string , imgSrc? : string}) {
     
@@ -32,6 +33,7 @@ export default async function NavBar () {
 
     const userData = await getUserData(session)
 
+    
     let  userImageUrl : string = ''
 
     if (userData)
@@ -39,13 +41,14 @@ export default async function NavBar () {
 
     return (
         <div className={styles.NavBar}>
-            <div className={styles.NavBarContainer}>
+            {/* <div className={styles.NavBarContainer}> */}
 
             <Link className={styles.NavBarLogoPic} href="/">
                 <div><img src='/Icon/logo.png' alt='Logo image' className={styles.image}/></div>
             </Link>
                 
-                <div className={styles.NavBarButtonWrapper}>
+            <div className={styles.NavBarButtonWrapper}>
+                    {session && session.user.role === 'admin'? <NavBarButton text='reservation' link='/a/reservations'></NavBarButton>  : ''}
                     <NavBarButton link= {(session && session.user.role === 'admin' ? '/a' : '') +  '/companies'} text='Companies'/>
                     {
                     userData ? 
@@ -54,8 +57,8 @@ export default async function NavBar () {
                     
                     <div className={styles.NavBarButtonCollection}></div>
                     
-                </div>
             </div>
+            {/* </div> */}
         </div>
     )
 }

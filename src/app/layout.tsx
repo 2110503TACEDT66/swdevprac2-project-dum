@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 import { getServerSession } from 'next-auth'
 import { authOptions } from './api/auth/[...nextauth]/route'
 import NextAuthProvider from '@/providers/NextAuthProvider'
+import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,6 +22,7 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions)
   return (
     <html lang="en">
+      <head> <title>CEDT JOB FAIR</title></head>
       <body>
         <NextAuthProvider session={session}>
             <NavBar/>
