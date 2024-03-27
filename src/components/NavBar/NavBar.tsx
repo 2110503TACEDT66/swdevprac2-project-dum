@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import Image from 'next/image'
+import getUserData from '@/app/libs/getUserData'
 
 export function NavBarButton ({text , link , imgSrc} : {text? : string , link : string , imgSrc? : string}) {
     
@@ -29,10 +30,12 @@ export default async function NavBar () {
 
     const session = await getServerSession(authOptions)
 
+    const userData = await getUserData(session)
+
     let  userImageUrl : string = ''
 
-    if (session)
-        userImageUrl= session.user.imageurl
+    if (userData)
+        userImageUrl= userData.data.imageurl
 
     return (
         <div className={styles.NavBar}>

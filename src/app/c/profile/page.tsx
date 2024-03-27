@@ -3,6 +3,7 @@ import CompanyDetailCard from "@/components/CompanyDetailCard/CompanyDetailCard"
 import styles from './page.module.css'
 import CreateSession from "@/components/CreateSession/CreateSession"
 import CompanyTimeSlot from "@/components/CompanyTimeSlot/ConpanyTimeSlot"
+import SessionPanel from "@/components/SessionPanel/SessionPanel"
 export default function TestAttendee(){
     return(
         <div>
@@ -15,7 +16,8 @@ export default function TestAttendee(){
             </div>
 
             <div className={styles.Sec3}>
-                <CompanyTimeSlot/>
+                {/* <CompanyTimeSlot/> */}
+                <SessionPanel></SessionPanel>
             </div>
         </div>
         

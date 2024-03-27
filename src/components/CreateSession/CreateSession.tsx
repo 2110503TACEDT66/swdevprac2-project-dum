@@ -25,11 +25,7 @@ export default function CreateSession() {
     const startTime = (startTimeValuee.$H) + ':' + (startTimeValuee.$m)
     const endTime = (endTimeValuee.$H) + ':' + (endTimeValuee.$m)
 
-    console.log(description , capacity , date , startTime , endTime)
-    
     const newTimeSlot =  await createNewTimeSlot(date , startTime , endTime , capacity , description)
-
-    console.log(newTimeSlot)
 
   }
 

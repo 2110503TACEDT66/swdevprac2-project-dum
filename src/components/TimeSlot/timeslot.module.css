@@ -12,13 +12,17 @@
     width: 100%;
     height: 48px;
     background-color: #F4F4F4;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .textBlock , .buttonBlock{
     width: 23.25%;
     text-align: center;
     font-weight: bold;
+}
+
+.buttonBlock button {
+  font-size: 14px;
 }
 
 .textBlock{

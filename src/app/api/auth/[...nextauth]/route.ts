@@ -24,7 +24,7 @@ export const authOptions : AuthOptions = {
                 if (!credentials)
                     return null
 
-                var user 
+                var user
 
                 if (!credentials.isCompany || credentials.isCompany === 'false'){
                     user = await userLogin(credentials.email , credentials.password)
@@ -32,40 +32,31 @@ export const authOptions : AuthOptions = {
                 else{
                     user = await companyLogin(credentials.email , credentials.password)
                 }
-                        
+               
+
                 if (user) 
                     return user
-                else 
+                else
                     return null
+                            
+                // if (checkUser) {
+                //     const user = { _id : checkUser.data._id, token : checkUser.data.token}
+                //     return user
+                // }
+                // else 
+                //     return null
             
         }
       })
     ],
     session : {strategy : 'jwt'},
     callbacks : {
-        async jwt({token , user , session , trigger}) {
-            
-            if (trigger === 'update') {
-                
-                token.data = session.user
-
-                return{
-                    ...token , ...user
-                }
-
-
-
-            }
-            return {...token , ...user} 
+        async jwt({token , user , session}) {
+            return {...token , ...user}
         } , 
-        async session({session , token , user} : {session : any , token : JWT , user : AdapterUser}) {
-            
-            const data : any = token.data
-            const role : any = data.role
-            if (role === 'company')
-                session.company = token.data
-            session.user = token.data
-            
+        async session({session , token , user} : {session : Session , token : any , user : any}) {
+        
+            session.user = {_id : token._id  , role : token.role , token : token.token}
             
             return session
         }

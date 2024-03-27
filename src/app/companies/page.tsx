@@ -6,11 +6,18 @@
 // import TimeSlotPanel from '@/components/TimeSlotPanel/TimeSlotPanel'
 // import CompanyBlock from '@/components/CompanyBlock/CompanyBlock'
 import CompanyPanel from '@/components/CompanyPanel/CompanyPanel'
+import getAllCompanies from '../libs/getAllCompanies'
+import getUserData from '../libs/getUserData'
+import { revalidateTag } from 'next/cache'
 
-export default function CompanyPage() {
+export default async function CompanyPage() {
+
+    const allCompanies = await getAllCompanies()
+    const thisUser = await getUserData()
+    revalidateTag('allCompanies')
     return (
         
-            <CompanyPanel/>
+            <CompanyPanel allCompanies = {allCompanies} thisUser = {thisUser}/>
          
     )
 }

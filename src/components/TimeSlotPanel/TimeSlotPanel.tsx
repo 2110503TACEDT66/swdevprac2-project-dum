@@ -3,18 +3,21 @@
 import { useSession } from "next-auth/react"
 import TimeSlot from "../TimeSlot/TimeSlot"
 import styles from './timeslotpanel.module.css'
+import getUserData from "@/app/libs/getUserData"
 
-export default function TimeSlotPanel({companyTimeSlot} : {companyTimeSlot : any}){
+export default function TimeSlotPanel({companyTimeSlot , thisUser} : {companyTimeSlot : any , thisUser : any}){
 
-    const {data : session} = useSession()
     function isReserved (timeslotId : string) {
-        for (let i = 0 ; i < session?.user.reservation.length ; i++) {
-            if (timeslotId === session?.user.reservation[i].timeslot)
+        for (let i = 0 ; i < thisUser.data.reservation.length ; i++) {
+            const isMatch = (timeslotId === thisUser.data.reservation[i].timeslot._id.toString())
+            
+            if (isMatch){
                 return true
+            }
         }
-
         return false
     }
+
 
     return(
             <div className={styles.fullBlock}>
@@ -23,7 +26,7 @@ export default function TimeSlotPanel({companyTimeSlot} : {companyTimeSlot : any
                             maxCapacity={timeslot.capacity}
                             date={new Date(timeslot.date.split('T')[0])}
                             time={timeslot.startTime + '-' + timeslot.endTime}
-                            reserv={session ? (isReserved(timeslot._id) ? -1 : (timeslot.reservation.length >= timeslot.capacity ? -2 : 1) ) : 0}
+                            reserv={thisUser ? (isReserved(timeslot._id) ? -1 : (timeslot.reservation.length >= timeslot.capacity ? -2 : 1) ) : 0}
                             desc={timeslot.description}/>
                 ))}
             </div>

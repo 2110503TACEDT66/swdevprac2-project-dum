@@ -1,9 +1,9 @@
 .fullBlock {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
     background-color: #D7F2F7;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 1%;
+    border-radius: 15px;
   }
   

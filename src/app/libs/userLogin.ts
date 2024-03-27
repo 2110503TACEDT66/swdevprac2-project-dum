@@ -2,12 +2,8 @@ const backend_url = process.env.BACKEND_URL
 
 export default async function userLogin(userEmail : string , userPassword : string) {
     const userToken = await getUserToken(userEmail , userPassword)
-
     const userDetail = await getUserDetail(userToken.token)
 
-    if (userDetail && userToken)
-        userDetail.data.token = userToken.token
-    
     return userDetail
 
 }
@@ -32,16 +28,18 @@ async function getUserToken (userEmail : string, userPassword : string) {
 
 async function getUserDetail (userToken : string) {
 
-    const userDetail = await fetch(`${backend_url}/api/auth/me` , {
+    const userDetail = await (await fetch(`${backend_url}/api/auth/me` , {
         headers : {
             authorization : `Bearer ${userToken}`
         }
         ,
         cache : 'no-store'
-    })
+    })).json()
 
     if (!userDetail)
         throw new Error ('Faild to get User')
 
-    return await userDetail.json()
+    const userDetailMinimal = {_id : userDetail.data._id , role : userDetail.data.role , token : userToken}
+    
+    return  userDetailMinimal
 }

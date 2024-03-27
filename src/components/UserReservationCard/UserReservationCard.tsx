@@ -8,10 +8,12 @@ import { useEffect, useState } from 'react'
 import deleteReservation from '@/app/libs/deleteReservation'
 const backend_url = process.env.BACKEND_URL
 import getMe from '@/app/libs/getMe'
+import getUserData from '@/app/libs/getUserData'
 
 function ReservationBlock ({reservation} : {reservation : any}) {
 
     const [state , updateState] = useState(false)
+
     if (!state) {
         return (
             <div className={styles.ReservationBlock} key={reservation._id}>
@@ -23,6 +25,7 @@ function ReservationBlock ({reservation} : {reservation : any}) {
                     <Image className={styles.ArrowImage} src='/Icon/Arrow-Down.png' width={0} height={0} sizes='100vh' alt='arrow' onClick={() => updateState(!state)}></Image>
                 </div>
             </div>
+            
         )
     }
     else {
@@ -51,18 +54,23 @@ function ReservationBlock ({reservation} : {reservation : any}) {
     }
 }
 
-export default async function UserReservationCard ({reservationArray} : {reservationArray : Array<Object>}) {
-        
+export default function UserReservationCard ({userData} : {userData : any}) {
+
+        console.log(userData)
+
+        const reservartionArray = userData.data.reservation
+        console.log(reservartionArray)
         return (
         <div className={styles.Card}>
             <h2 className={styles.ReservationHeader}>Your Reservation</h2>
             <div className={styles.CardWrapper}>
-                {reservationArray.map((reservation : any) => (
+                {reservartionArray.map((reservation : any) => (
                     <ReservationBlock reservation={reservation} key={reservation._id}/>
                 ))}
 
             </div>
             
         </div>
+        
     )
 }

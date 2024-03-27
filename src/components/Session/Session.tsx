@@ -5,12 +5,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from '@mui/material';
 
 
-export default function Session({date,time,currentCapacity,maxCapacity,desc}:{date:Date,time:string,currentCapacity:number,maxCapacity:number,desc:string}){
+export default function Session({date,time,currentCapacity,maxCapacity,desc}:{date:string,time:string,currentCapacity:number,maxCapacity:number,desc:string}){
     return (
         <div className={styles.fullBlock}>
             <div className={styles.rowBlock}> 
                 <div className={styles.topic}> 
-                    {date.toLocaleDateString()} 
+                    {date} 
                     {/* <IconButton aria-label="edit">
                         <EditIcon className={styles.editButton}/>
                     </IconButton>  */}

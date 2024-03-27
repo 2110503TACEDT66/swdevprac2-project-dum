@@ -17,20 +17,6 @@ export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,d
         setExpanded(!expanded);
     };
 
-    const {data : session , update : updateSession} = useSession()
-
-    async function refreshUserSession() {
-        
-        const thisUser = (await getMe()).data
-        if (!thisUser.token) {
-            thisUser.token = session!.user.token
-        }
-        session!.user = thisUser
-        updateSession(session)
-        
-    }
-
-
     return(
         <div className={styles.fullBlock}>
             <div className={styles.rowBlock}>
@@ -39,7 +25,7 @@ export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,d
                 <div className={styles.textBlock}>Capacity : {currentCapacity}/{maxCapacity}</div>
                 <div className={styles.buttonBlock}> 
                 {
-                    reserv == 1 ? <Button variant="contained" className={styles.addButton} onClick={async () => {;  await reserveTimeSlot(tid) ; await refreshUserSession() ; window.location.reload();}}>
+                    reserv == 1 ? <Button variant="contained" className={styles.addButton} onClick={async () => {await reserveTimeSlot(tid) ;}}>
                         Reserve 
                     </Button>:
                     (reserv == 0 ? <Button variant="contained" disabled className={styles.disabledButton}>

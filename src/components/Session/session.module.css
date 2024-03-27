@@ -1,7 +1,7 @@
 .fullBlock {
     background-color: #F9F9F9;
     padding: 25px 50px;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
   }

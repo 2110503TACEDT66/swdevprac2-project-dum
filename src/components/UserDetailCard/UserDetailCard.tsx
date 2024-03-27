@@ -5,9 +5,9 @@ import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import userUpdate from '@/app/libs/userUpdate'
+import { revalidatePath } from 'next/cache'
 
 function UserDetailForm ({text  , keyy  , value } : {text : string , keyy : string , value : string}) {
-
     const [inpVal , setValue] = useState(value)
 
     return (
@@ -18,11 +18,9 @@ function UserDetailForm ({text  , keyy  , value } : {text : string , keyy : stri
     )
 }
 
-export default  function UserDetailCard () {
+export default  function UserDetailCard ({userData} : {userData : any}) {
 
     const [state , updateState]= useState(0)
-
-    const {data: session, update: sessionUpdate} = useSession()
     
     var imageBuffer : string | null = null
 
@@ -31,40 +29,26 @@ export default  function UserDetailCard () {
         const inpForm = document.forms[0]
         
         if (state == 0) {
-            
             Array.from(inpForm).forEach((X : any)  => {
                 X.disabled = false
             });
-
             imageBuffer = null
-
             updateState((state + 1) % 2)
-
-            
         }
 
         else {
-
             const newData : any = {}
-
             Array.from(inpForm).forEach((X : any)  => {
                 X.disabled = true
                 newData[X.name] = X.value
             });
+            console.log("====")
+            console.log(imageBuffer)
 
-            const updatedUser = await userUpdate(session , newData)
-            
-            if (updatedUser.data) {
+            if (imageBuffer)
+                newData.imageurl = imageBuffer
 
-                updatedUser.data.token = session!.user.token
-                session!.user = updatedUser.data
-
-                if (imageBuffer)
-                    session!.user.imageurl = imageBuffer
-                sessionUpdate(session)
-                
-            }
-            
+            const updatedUser = await userUpdate(userData.token , newData)
 
             updateState((state + 1) % 2)
 
@@ -84,6 +68,7 @@ export default  function UserDetailCard () {
             updateState(0)
         }
     } , [])
+
     return(
         
         <div className={styles.DetailCard}>
@@ -101,28 +86,18 @@ export default  function UserDetailCard () {
             </div>
 
             <div className={styles.BottomBlock}>
-                <Image className={styles.LeftBottomBlock} src={session!.user.imageurl} width={0} height={0} sizes='100vh' alt='UserProfilePic'></Image>
+                <Image className={styles.LeftBottomBlock} src={userData.data.imageurl} width={0} height={0} sizes='100vh' alt='UserProfilePic'></Image>
                 
                 <div className={styles.RightBottomBlock}>
                     <form name='user-update-form' className={styles.FormBlock}>
-                        <UserDetailForm text='Name' keyy='name' value={session!.user.name}/>
-                        <UserDetailForm text='Email' keyy='email' value={session!.user.email}/>
-                        <UserDetailForm text='Tel' keyy='tel' value={session!.user.tel}/>
+                        <UserDetailForm text='Name' keyy='name' value={userData.data.name}/>
+                        <UserDetailForm text='Email' keyy='email' value={userData.data.email}/>
+                        <UserDetailForm text='Tel' keyy='tel' value={userData.data.tel}/>
                     </form>
                     
                     
                 </div>
-            </div>
-{/*             
-            <div className={styles.LeftBlock}>
-                <div className={styles.LeftBlockTop}>
-                    <text>Your Profile</text>
-                    <text>[]</text>
-                </div>
-                <Image className={styles.LeftBlockBottom} src={session!.user.imageurl} width={0} height={0} sizes='100vh' alt='UserProfilePic'></Image>
-            </div>
-
-            <div className={styles.RightBlock}></div> */}
+            </div> 
         </div>
     )
 }
