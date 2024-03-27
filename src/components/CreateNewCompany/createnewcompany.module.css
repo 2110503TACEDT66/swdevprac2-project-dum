@@ -40,6 +40,8 @@
 
   .image{
     width: 100% ;
+    aspect-ratio: 1;
+    height: auto;
   }
 
   .iconBlock {
@@ -67,6 +69,7 @@
     /* border-radius: 10px; */
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .topicBlock{
@@ -78,7 +81,7 @@
   }
 
   .inputBlock{
-    width: 75%;
+    width: 60%;
     display: flex;
     align-items: center;
   }

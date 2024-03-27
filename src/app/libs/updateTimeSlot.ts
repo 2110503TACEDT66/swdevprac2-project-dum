@@ -15,6 +15,7 @@ export default async function updateTimeSlot (user : any , timeslotId : string ,
         body : JSON.stringify(newData)
     })
 
+
     if (!updatedTimeSlot.ok)
         return null
     

@@ -22,10 +22,9 @@ export default async function CompanyPage() {
 
     const thisUser = await getUserData(session)
 
-    if (thisUser.data.role === 'admin')
+    if (session && thisUser.data.role === 'admin')
         redirect('/a/companies')
 
-    revalidateData()
     return (
         
             <CompanyPanel allCompanies = {allCompanies} thisUser = {thisUser}/>

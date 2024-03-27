@@ -5,7 +5,6 @@ import revalidateData from "./revalidataData"
 
 export default async function createNewCompany(user : any , companyData : any) {
     const backend_url = process.env.BACKEND_URL
-    // console.log(JSON.stringify(companyData))
     const newCompany = await fetch(`${backend_url}/api/companies` , {
         method : 'POST',
         headers : {
@@ -16,7 +15,6 @@ export default async function createNewCompany(user : any , companyData : any) {
             ...companyData
         })
     })
-    console.log(newCompany.status)
     if (!newCompany.ok)
         return null
     

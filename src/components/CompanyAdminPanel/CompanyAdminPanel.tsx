@@ -2,7 +2,7 @@ import styles from './companyadminpanel.module.css'
 import CompanyAdminBlock from '../CompanyAdminBlock/CompanyAdminBlock';
 import getAllCompanies from '@/app/libs/getAllCompanies';
 
-export default async function(){
+export default async function({user} : {user : any}){
     
     
     const allCompanies = await getAllCompanies()
@@ -13,13 +13,8 @@ export default async function(){
             <div className={styles.fullBlock}>
                 {allCompanies.data.map((company : any) => (
                     
-                    <CompanyAdminBlock key={company.id} compName={company.name}
-                        website={company.website}
-                        tel={company.tel}
-                        email={company.contact_email}
-                        desc={company.description}
-                        img={company.imageurl}
-                        timeslot={company.timeslot}
+                    <CompanyAdminBlock key={company.id} user={user} company={company}
+                        
                     />
                 ))}
             </div>

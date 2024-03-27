@@ -8,11 +8,17 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import getUserData from "@/app/libs/getUserData"
 import LogoutButton from "@/components/LogoutButton/LogoutButton"
+import { redirect, RedirectType } from "next/navigation"
+
 export default async function TestAttendee(){
 
     const session = await getServerSession(authOptions)
-    const thisUser = await getUserData(session)
 
+    if (session?.user.role !== 'company')
+        redirect('/profile')
+
+    
+    const thisUser = await getUserData(session)
     return(
         <div>
             <div className={styles.Sec1}>

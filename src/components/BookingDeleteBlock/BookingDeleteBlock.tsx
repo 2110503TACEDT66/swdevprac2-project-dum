@@ -9,7 +9,6 @@ export default function BookingDeleteBlock({compName, date, time} : {compName:st
         
             <div className={styles.reserve}>
                 <div className={styles.compName}>{compName}</div>
-                {/* <div className={styles.reserveDetail}>{date.toLocaleDateString()}</div> */}
                 <div className={styles.date}>{date}</div>
                 <div className={styles.time}>{time}</div>
                 <div className={styles.buttonBlock}>

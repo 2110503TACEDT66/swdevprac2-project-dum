@@ -7,7 +7,7 @@ import { IconButton } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { useState } from 'react';
 import createNewCompany from '@/app/libs/createNewCompany';
-
+import Image from 'next/image';
 export default function CreateNewCompany({user} : {user : any}) {
     
     const [name , setName] = useState('')
@@ -18,7 +18,7 @@ export default function CreateNewCompany({user} : {user : any}) {
     const [description , setDescription] = useState('')
     const [password , setPassword] = useState('')
     const [imageurl , setImageUrl] = useState('https://lh3.googleusercontent.com/d/1fEupp6pabESavw2XvXXmYRpK46vLf2Ea')
-
+    const [address , setAddress] = useState('')
     async function createCompanyHandler () {
 
         
@@ -41,13 +41,12 @@ export default function CreateNewCompany({user} : {user : any}) {
         if (newCompany && newCompany.success == true) 
             window.location.reload()
     }
-
     return (
         <div className={styles.fullPage}>
         <div className={styles.fullBlock}>
             <div className={styles.topPart}>
                 <div className={styles.imageBlock}>
-                    <img src={imageurl} alt='Profile x picture' className={styles.image}/>
+                    <Image width={0} height={0} sizes='100vh' src={imageurl} alt='Profile x picture' className={styles.image}/>
                     <div className={styles.iconBlock}>
                     <IconButton onClick={() => {const newImage = prompt('New Image Url') ; if (newImage){setImageUrl(newImage)}}} aria-label="edit">
                         <PhotoCameraIcon className={styles.cameraButton}/>
@@ -71,6 +70,18 @@ export default function CreateNewCompany({user} : {user : any}) {
                             <TextField value={website} onChange={(newValue) => {setWebsite(newValue.target.value)}} id="website" variant="standard" className={styles.textField}/>
                         </div>
                     </div>
+
+                    <div className={styles.rowBlock}>
+                        <div className={styles.topicBlock}>
+                            Address
+                        </div>
+                        <div className={styles.inputBlock}>
+                            <TextField value={address} onChange={(newValue) => {setAddress(newValue.target.value)}} id="address" variant="standard" className={styles.textField}/>
+                        </div>
+                    </div>
+
+
+
                     <div className={styles.rowBlock}>
                         <div className={styles.topicBlock}>
                             Tel. number
@@ -97,7 +108,7 @@ export default function CreateNewCompany({user} : {user : any}) {
                     </div>
                     <div className={styles.rowBlock}>
                         <div className={styles.topicBlock}>
-                            Sign-up Email
+                            Sign-up Email*
                         </div>
                         <div className={styles.inputBlock}>
                             <TextField value={login_email} onChange={(newValue) => {setLoginEmail(newValue.target.value)}} id="signupemail" variant="standard" className={styles.textField}/>
@@ -105,7 +116,7 @@ export default function CreateNewCompany({user} : {user : any}) {
                     </div>
                     <div className={styles.rowBlock}>
                         <div className={styles.topicBlock}>
-                            Password
+                            Password*
                         </div>
                         <div className={styles.inputBlock}>
                             <TextField value={password} onChange={(newValue) => {setPassword(newValue.target.value)}} id="password" type="password" variant="standard" className={styles.textField}/>

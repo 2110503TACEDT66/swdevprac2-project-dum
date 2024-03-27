@@ -46,11 +46,11 @@ export default async function NavBar () {
             </Link>
                 
                 <div className={styles.NavBarButtonWrapper}>
-                    <NavBarButton link= '/companies' text='Companies'/>
+                    <NavBarButton link= {(session && session.user.role === 'admin' ? '/a' : '') +  '/companies'} text='Companies'/>
                     {
                     userData ? 
                     <NavBarButton link='/profile' imgSrc={userImageUrl}></NavBarButton> 
-                    : <NavBarButton link='/api/auth/signin' text='Sign-In'/>}
+                    : <NavBarButton link='/signin' text='Sign-In'/>}
                     
                     <div className={styles.NavBarButtonCollection}></div>
                     

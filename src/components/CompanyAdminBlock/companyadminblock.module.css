@@ -30,6 +30,7 @@
 
 .textBlock{
     width: 60%;
+    word-wrap: break-word
     /* background-color: aqua; */
 }
 
@@ -40,7 +41,8 @@
 
 .compDesc{
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
+    width: 80%;
 }
 
 .imgBlock{
@@ -110,9 +112,11 @@
 }
 
 .web{
-    display: flex;
-    flex-direction: row;
+    width: 48%;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
     margin-top: 1%;
+    word-wrap: break-word
 
     
 }

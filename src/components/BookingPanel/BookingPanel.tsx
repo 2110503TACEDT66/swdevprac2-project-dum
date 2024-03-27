@@ -13,6 +13,7 @@ export default async function BookingPanel() {
             {allUser.data.map((user:any) => (
                 <div className={styles.bookingPanel}>
                     <BookingBlock
+                        key={user._id}
                         userName={user.name}
                         tel={user.tel}
                         email={user.email}

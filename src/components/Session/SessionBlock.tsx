@@ -23,7 +23,6 @@ export default function SessionBlock({timeslot , user}:{timeslot : any , user : 
         else {
             const newData = {description : value}
             const updated = await updateTimeSlot(user , timeslot._id , newData)
-            console.log(updated)
             setEdit(!isEdit)
             if (formm.current)
                 formm.current.disabled = true
