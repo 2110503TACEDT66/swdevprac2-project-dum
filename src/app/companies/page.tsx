@@ -11,14 +11,21 @@ import getUserData from '../libs/getUserData'
 import { revalidateTag } from 'next/cache'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]/route'
+import { setEngine } from 'crypto'
 
 export default async function CompanyPage() {
 
-    const session = getServerSession(authOptions)
+    const session = await getServerSession(authOptions)
 
     const allCompanies = await getAllCompanies()
+
+
     const thisUser = await getUserData(session)
+
+
+
     revalidateTag('allCompanies')
+
     return (
         
             <CompanyPanel allCompanies = {allCompanies} thisUser = {thisUser}/>
