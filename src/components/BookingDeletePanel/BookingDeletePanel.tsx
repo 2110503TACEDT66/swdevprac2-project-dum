@@ -40,9 +40,9 @@ export default function BookingDeletePanel({reserv}:{reserv:any}){
             {reserv.map((reservation:any) => (
                 <div className={styles.companyIntBlock}>
                     <BookingDeleteBlock
-                    compName={reservation.timeslot.company}
-                    date={reservation.timeslot.date}
-                    time={reservation.timeslot.time}
+                    compName={reservation.timeslot.company.name}
+                    date={reservation.timeslot.date.split('T')[0]}
+                    time={reservation.timeslot.startTime + " - " + reservation.timeslot.endTime}
                     />
                 </div>
             ))}
