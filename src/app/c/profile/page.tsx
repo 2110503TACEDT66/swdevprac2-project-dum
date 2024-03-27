@@ -4,20 +4,30 @@ import styles from './page.module.css'
 import CreateSession from "@/components/CreateSession/CreateSession"
 import CompanyTimeSlot from "@/components/CompanyTimeSlot/ConpanyTimeSlot"
 import SessionPanel from "@/components/SessionPanel/SessionPanel"
-export default function TestAttendee(){
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import getUserData from "@/app/libs/getUserData"
+export default async function TestAttendee(){
+
+    const session = await getServerSession(authOptions)
+    const thisUser = await getUserData(session)
+
+    // console.log(thisUser)
+    // console.log(session)
     return(
         <div>
             <div className={styles.Sec1}>
-                <CompanyDetailCard/>
+                <CompanyDetailCard user = {thisUser} />
             </div>
 
             <div className={styles.Sec2}>
+                <h2 className={styles.HeaderText}>Create Sesison</h2>
                 <CreateSession/>
             </div>
 
             <div className={styles.Sec3}>
-                {/* <CompanyTimeSlot/> */}
-                <SessionPanel></SessionPanel>
+                <h2 className={styles.HeaderText}>Your Session</h2>
+                <SessionPanel user={thisUser}></SessionPanel>
             </div>
         </div>
         

@@ -1,13 +1,17 @@
+import getUserData from "./getUserData"
+
 const backend_url = process.env.BACKEND_URL
 
 export default async function companyLogin(userEmail : string , userPassword : string) {
     const userToken = await getUserToken(userEmail , userPassword)
+    const tempSession = {user : {
+        role : 'company',
+        token : userToken.token
+    }}
 
-    const userDetail = await getUserDetail(userToken.token)
+    const userDetail = (await getUserData(tempSession)).data
+    userDetail.token = userToken.token
 
-    if (userDetail && userToken)
-        userDetail.data.token = userToken.token
-    
     return userDetail
 
 }
@@ -30,18 +34,3 @@ async function getUserToken (userEmail : string, userPassword : string) {
     return await responseToken.json()
 }
 
-async function getUserDetail (userToken : string) {
-
-    const userDetail = await fetch(`${backend_url}/api/companies/auth/getdetail` , {
-        headers : {
-            authorization : `Bearer ${userToken}`
-        }
-        ,
-        cache : 'no-store'
-    })
-
-    if (!userDetail)
-        throw new Error ('Faild to get User')
-
-    return await userDetail.json()
-}

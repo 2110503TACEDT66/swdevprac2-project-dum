@@ -3,13 +3,11 @@ import Session from '../Session/Session'
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
-export default async function SessionPanel(){
+export default async function SessionPanel({user} : {user : any}){
 
-    const session = await getServerSession(authOptions)
-    const thisCompanyTimeSlot = session?.company.timeslot
+    const thisCompanyTimeSlot = user.data.timeslot
 
     return(
-        <div className={styles.mock}>
             <div className={styles.fullBlock}>
             {thisCompanyTimeSlot.map((timeslot : any) => (
                         <Session date={timeslot.date.split('T')[0]}
@@ -20,7 +18,6 @@ export default async function SessionPanel(){
                             desc={timeslot.description}/>
                 ))}
             </div>
-        </div>
         
     )
 }

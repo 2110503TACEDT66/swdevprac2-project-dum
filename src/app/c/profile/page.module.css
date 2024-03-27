@@ -16,7 +16,7 @@
 
 .Sec2 {
     
-    margin-top: 5vh;
+    margin-top: 4vh;
 
     width: 100%;
 
@@ -31,7 +31,7 @@
 
 .Sec3 {
     
-    margin-top: 5vh;
+    margin-top: 10vh;
 
     width: 100%;
 
@@ -44,4 +44,8 @@
     box-sizing: border-box;
 }
 
-
+.HeaderText {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1vh;
+  }

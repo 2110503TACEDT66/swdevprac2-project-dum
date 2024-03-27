@@ -32,20 +32,12 @@ export const authOptions : AuthOptions = {
                 else{
                     user = await companyLogin(credentials.email , credentials.password)
                 }
-               
 
                 if (user) 
-                    return user
+                    return user as any
                 else
                     return null
                             
-                // if (checkUser) {
-                //     const user = { _id : checkUser.data._id, token : checkUser.data.token}
-                //     return user
-                // }
-                // else 
-                //     return null
-            
         }
       })
     ],
@@ -57,7 +49,6 @@ export const authOptions : AuthOptions = {
         async session({session , token , user} : {session : Session , token : any , user : any}) {
         
             session.user = {_id : token._id  , role : token.role , token : token.token}
-            
             return session
         }
     },

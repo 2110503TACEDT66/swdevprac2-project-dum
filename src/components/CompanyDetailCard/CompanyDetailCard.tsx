@@ -17,11 +17,9 @@ function CompanyDetailForm ({text  , keyy  , value } : {text : string , keyy : s
     )
 }
 
-export default  function CompanyDetailCard () {
+export default  function CompanyDetailCard ({user} : {user : any}) {
 
     const [state , updateState]= useState(0)
-
-    const {data: session, update: sessionUpdate} = useSession()
     
     var imageBuffer : string | null = null
 
@@ -51,24 +49,10 @@ export default  function CompanyDetailCard () {
                 newData[X.name] = X.value
             });
 
+            if (imageBuffer)
+                newData.imageurl = imageBuffer
 
-            const updatedCompany = await companyUpdate(session , newData)
-            
-
-            if (updatedCompany.data) {
-
-                updatedCompany.data.token = session!.user.token
-                session!.user = updatedCompany.data
-                session!.company = updatedCompany.data
-
-                if (imageBuffer){
-                    session!.company.imageurl = imageBuffer
-                    session!.user.imageurl = imageBuffer
-                }
-                
-                sessionUpdate(session)
-            }
-            
+            const updatedCompany = await companyUpdate(user.data._id , user.data.token ,newData)
 
             updateState((state + 1) % 2)
 
@@ -105,16 +89,16 @@ export default  function CompanyDetailCard () {
             </div>
 
             <div className={styles.BottomBlock}>
-                <Image className={styles.LeftBottomBlock} src={session!.company.imageurl} width={0} height={0} sizes='100vh' alt='companyProfilePic'></Image>
+                <Image className={styles.LeftBottomBlock} src={user.data.imageurl} width={0} height={0} sizes='100vh' alt='companyProfilePic'></Image>
                 
                 <div className={styles.RightBottomBlock}>
                     <form name='company-update-form' className={styles.FormBlock}>
-                        <CompanyDetailForm text='Name' keyy='name' value={session!.company.name}/>
-                        <CompanyDetailForm text='Website' keyy='website' value={session!.company.website}/>
-                        <CompanyDetailForm text='Tel' keyy='tel' value={session!.company.tel}/>
-                        <CompanyDetailForm text='Email' keyy='email' value={session!.company.contact_email}/>
+                        <CompanyDetailForm text='Name' keyy='name' value={user.data.name}/>
+                        <CompanyDetailForm text='Website' keyy='website' value={user.data.website}/>
+                        <CompanyDetailForm text='Tel' keyy='tel' value={user.data.tel}/>
+                        <CompanyDetailForm text='Email' keyy='email' value={user.data.contact_email}/>
 
-                        <CompanyDetailForm text='Description' keyy='description' value={session!.company.description}/>
+                        <CompanyDetailForm text='Description' keyy='description' value={user.data.description}/>
                     </form>
                     
                     

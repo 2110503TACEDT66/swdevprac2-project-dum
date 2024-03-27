@@ -17,7 +17,7 @@ export default async function ProfilePage () {
         redirect('/c/profile')
     }
 
-    const userData = await getUserData()
+    const userData = await getUserData(session)
     userData.token = session?.user.token
 
     return (
