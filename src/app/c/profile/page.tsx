@@ -7,13 +7,12 @@ import SessionPanel from "@/components/SessionPanel/SessionPanel"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import getUserData from "@/app/libs/getUserData"
+import LogoutButton from "@/components/LogoutButton/LogoutButton"
 export default async function TestAttendee(){
 
     const session = await getServerSession(authOptions)
     const thisUser = await getUserData(session)
 
-    // console.log(thisUser)
-    // console.log(session)
     return(
         <div>
             <div className={styles.Sec1}>
@@ -22,7 +21,8 @@ export default async function TestAttendee(){
 
             <div className={styles.Sec2}>
                 <h2 className={styles.HeaderText}>Create Sesison</h2>
-                <CreateSession/>
+                <CreateSession user = {thisUser}/>
+                <LogoutButton/>
             </div>
 
             <div className={styles.Sec3}>

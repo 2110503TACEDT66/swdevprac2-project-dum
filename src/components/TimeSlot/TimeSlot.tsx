@@ -10,7 +10,7 @@ import reserveTimeSlot from '@/app/libs/reserveTimeSlot';
 import { useSession } from 'next-auth/react';
 import getMe from '@/app/libs/getMe';
 
-export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,desc,tid}:{date:Date , time:string , currentCapacity:number , maxCapacity:number , reserv:number , desc:string , tid : string}){
+export default function TimeSlot({user , date,time,currentCapacity,maxCapacity,reserv,desc,tid}:{user : any , date:Date , time:string , currentCapacity:number , maxCapacity:number , reserv:number , desc:string , tid : string}){
 
     const [expanded, setExpanded] = useState(false);
     const toggleExpand = () => {
@@ -25,11 +25,11 @@ export default function TimeSlot({date,time,currentCapacity,maxCapacity,reserv,d
                 <div className={styles.textBlock}>Capacity : {currentCapacity}/{maxCapacity}</div>
                 <div className={styles.buttonBlock}> 
                 {
-                    reserv == 1 ? <Button variant="contained" className={styles.addButton} onClick={async () => {await reserveTimeSlot(tid) ;}}>
+                    reserv == 1 && user.data.role !== 'company' ? <Button variant="contained" className={styles.addButton} onClick={async () => {await reserveTimeSlot(tid) ;}}>
                         Reserve 
                     </Button>:
-                    (reserv == 0 ? <Button variant="contained" disabled className={styles.disabledButton}>
-                        Please Login
+                    (reserv == 0 || user.data.role === 'company' ? <Button variant="contained" disabled className={styles.disabledButton}>
+                        Please Login User
                     </Button>: 
                     
                     (reserv == -1 ? <Button variant="contained" disabled className={styles.disabledButton}>

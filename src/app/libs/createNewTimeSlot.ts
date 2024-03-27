@@ -2,25 +2,26 @@
 
 import { getServerSession } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]/route"
+import { revalidateTag } from "next/cache"
 
 const backend_url = process.env.BACKEND_URL
 
-export default async function createNewTimeSlot (date : string, startTime : string , endTime : string , capacity : number , description : string) {
+export default async function createNewTimeSlot (user : any , date : string, startTime : string , endTime : string , capacity : number , description : string) {
     
-    const session = await getServerSession(authOptions)
-    const newTimeSlot = await (await fetch(`${backend_url}/api/companies/${session!.company._id}/timeslot` , 
+    const newTimeSlot = await (await fetch(`${backend_url}/api/companies/${user.data._id}/timeslot` , 
     
     {
         method : 'POST',
         headers : {
             'Content-Type' : 'application/json',
-            authorization : `Bearer ${session?.company.token}`
+            authorization : `Bearer ${user.data.token}`
         },
         body : JSON.stringify({
             date , startTime , endTime , capacity , description
         })
     })).json()
 
+    revalidateTag('companyData')
     return newTimeSlot
 
 }

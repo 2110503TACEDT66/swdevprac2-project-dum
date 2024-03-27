@@ -7,7 +7,6 @@ const backend_url = process.env.BACKEND_URL
 
 export default async function companyUpdate (companyId : any , token : any , newData : Object) {
     try {
-        console.log(token)
         const updateCompany = await fetch(`${backend_url}/api/companies/${companyId}` , {
         method : 'PUT',
         headers : {
@@ -18,7 +17,6 @@ export default async function companyUpdate (companyId : any , token : any , new
             newData
         )
     })
-    console.log(updateCompany.status)
     if (!updateCompany.ok)
         return null
     

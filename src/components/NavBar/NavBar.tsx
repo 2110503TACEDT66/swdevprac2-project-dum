@@ -29,7 +29,6 @@ export function NavBarButton ({text , link , imgSrc} : {text? : string , link : 
 export default async function NavBar () {
 
     const session = await getServerSession(authOptions)
-    console.log(session)
 
     const userData = await getUserData(session)
 

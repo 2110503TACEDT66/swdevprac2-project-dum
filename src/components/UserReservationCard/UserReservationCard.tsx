@@ -40,7 +40,7 @@ function ReservationBlock ({reservation} : {reservation : any}) {
                         <h2>{'Time : ' + reservation.timeslot.startTime + " - " + reservation.timeslot.endTime}</h2>
                     </div>
                     <p>{reservation.timeslot.description}</p>
-                    <button onClick={async () => {await deleteReservation(reservation._id) ; window.location.reload(); }}>Delete</button>
+                    <button  onClick={async () => {await deleteReservation(reservation._id)}}>Delete</button>
                 </div>
 
                 <div className={styles.RightBlock}>

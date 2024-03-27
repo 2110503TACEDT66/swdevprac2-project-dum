@@ -8,12 +8,16 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import createNewTimeSlot from '@/app/libs/createNewTimeSlot';
+import Image from 'next/image';
 
-export default function CreateSession() {
+export default function CreateSession({user} : {user : any}) {
 
   const [selectedDate, setSelectedDate] = useState('');
   const [startTimeValue , setStartTimeValue] = useState(dayjs('2022-04-17T15:30'))
   const [endTimeValue , setEntTimeValue] = useState(dayjs('2022-04-17T15:30'))
+
+  const [isCreated , setCreated] = useState(false)
+
   async function createTimeSlot() {
     
     const description = document.forms[1]['description'].value
@@ -25,9 +29,28 @@ export default function CreateSession() {
     const startTime = (startTimeValuee.$H) + ':' + (startTimeValuee.$m)
     const endTime = (endTimeValuee.$H) + ':' + (endTimeValuee.$m)
 
-    const newTimeSlot =  await createNewTimeSlot(date , startTime , endTime , capacity , description)
+    const newTimeSlot =  await createNewTimeSlot(user , date , startTime , endTime , capacity , description)
+
+    if (newTimeSlot)
+      setCreated(true)
 
   }
+
+  function getStartTime () {
+
+    const startTimeValuee : any = startTimeValue
+    const startTime = (startTimeValuee.$H) + ':' + (startTimeValuee.$m)
+    return startTime
+
+  }
+
+  function getEndTime () {
+
+    const endTimeValuee : any = endTimeValue
+    const endTime = (endTimeValuee.$H) + ':' + (endTimeValuee.$m)
+    return endTime
+
+  } 
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -65,7 +88,15 @@ export default function CreateSession() {
                 </div>
 
                 </div>
-                <div onClick={() => {createTimeSlot()}} className={styles.SubmitWrapper}><Button>Create new session</Button></div>
+                <div className={styles.SubmitWrapper}>
+                  <Button onClick={() => {createTimeSlot()}}>Create new session</Button>
+                  
+                  {isCreated? <div className={styles.CreatedNotify}>
+                    <Image className={styles.Checked} src='/Icon/Ok.png' width={0} height={0} sizes='100vh' alt='checked'></Image>
+                    <h2>Created session at {getStartTime() + " to " + getEndTime()}</h2>
+                    </div>
+                    :''}
+                  </div>
             
               
           </form>
@@ -73,101 +104,3 @@ export default function CreateSession() {
     </LocalizationProvider>
   );
 }
-
-
-/*
-
-<div className={styles.fullBlock}>
-        <div className={styles.topPart}>
-          <div className={styles.topicBlock}>
-            <div className={styles.date}>Date</div>
-            <div className={styles.start}>Start time</div>
-            <div className={styles.end}>End time</div>
-            <div className={styles.capa}>Capacity</div>
-            <div className={styles.desc}>Description</div>
-          </div>
-          <div className={styles.contentBlock}>
-            <div className={styles.rowBlock}>
-              <div className={styles.buttonBlock}>
-              <Button
-                    variant="contained"
-                    className={styles.dateButton}
-                    style={{
-                        backgroundColor: selectedDate === '5/10/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/10/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
-                    }}
-                    onClick={() => setSelectedDate('5/10/2022')}
-                >
-                    5/10/2022
-                </Button>
-              </div>
-              <div className={styles.buttonBlock}>
-              <Button
-                    variant="contained"
-                    className={styles.dateButton}
-                    style={{
-                        backgroundColor: selectedDate === '5/11/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/11/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
-                    }}
-                    onClick={() => setSelectedDate('5/11/2022')}
-                >
-                    5/11/2022
-                </Button>
-              </div>
-              <div className={styles.buttonBlock}>
-              <Button
-                    variant="contained"
-                    className={styles.dateButton}
-                    style={{
-                        backgroundColor: selectedDate === '5/12/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/12/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
-                    }}
-                    onClick={() => setSelectedDate('5/12/2022')}
-                >
-                    5/12/2022
-                </Button>
-              </div>
-              <div className={styles.buttonBlock}>
-                <Button
-                    variant="contained"
-                    className={styles.dateButton}
-                    style={{
-                        backgroundColor: selectedDate === '5/13/2022' ? '#ffb726' : '#F3B02E',
-                        boxShadow: selectedDate === '5/13/2022' ? ' 0 0 0 3px #5BA4B4' : 'none'
-                    }}
-                    onClick={() => setSelectedDate('5/13/2022')}
-                >
-                    5/13/2022
-                </Button>
-              </div>
-            </div>
-            <div className={styles.timePickerBlock}>
-            <TimePicker
-                className={styles.timePicker}
-                defaultValue={dayjs('2022-04-17T15:30')}
-            />
-
-            </div>
-            <div className={styles.timePickerBlock}>
-                <TimePicker className={styles.timePicker}
-                    defaultValue={dayjs('2022-04-17T15:30')}
-                />
-            </div>
-            <div className={styles.textFieldBlock}>
-                <TextField id="capacity" variant="standard" className={styles.textField}/>
-            </div>
-            <div className={styles.textFieldBlock}>
-                <TextField id="description" variant="standard" className={styles.textField}/>
-            </div>
-          </div>
-        </div>
-        <div className={styles.botPart}>
-          <div className={styles.createButtonBlock}>
-            <Button variant="contained" className={styles.addButton}>
-                Create new session
-            </Button>
-          </div>
-        </div>
-      </div>
-
-*/

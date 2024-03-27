@@ -8,6 +8,10 @@ import getUserData from "@/app/libs/getUserData"
 export default function TimeSlotPanel({companyTimeSlot , thisUser} : {companyTimeSlot : any , thisUser : any}){
 
     function isReserved (timeslotId : string) {
+
+        if (!thisUser || thisUser.data.role === 'company')
+            return false
+
         for (let i = 0 ; i < thisUser.data.reservation.length ; i++) {
             const isMatch = (timeslotId === thisUser.data.reservation[i].timeslot._id.toString())
             
@@ -22,7 +26,7 @@ export default function TimeSlotPanel({companyTimeSlot , thisUser} : {companyTim
     return(
             <div className={styles.fullBlock}>
                 {companyTimeSlot.map((timeslot : any) => (
-                        <TimeSlot tid={timeslot._id} key={timeslot._id} currentCapacity={timeslot.reservation.length}
+                        <TimeSlot user = {thisUser} tid={timeslot._id} key={timeslot._id} currentCapacity={timeslot.reservation.length}
                             maxCapacity={timeslot.capacity}
                             date={new Date(timeslot.date.split('T')[0])}
                             time={timeslot.startTime + '-' + timeslot.endTime}

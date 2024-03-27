@@ -16,13 +16,13 @@
 }
 
 .textBlock , .buttonBlock{
-    width: 23.25%;
+    width: 30%;
     text-align: center;
     font-weight: bold;
 }
 
 .buttonBlock button {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .textBlock{

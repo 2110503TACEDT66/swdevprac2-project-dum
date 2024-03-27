@@ -15,8 +15,6 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
         setExpanded(!expanded);
     };
 
-    // console.log(company)
-
       return(
         <div className={styles.mock}>
             <div className={styles.fullBlock}>

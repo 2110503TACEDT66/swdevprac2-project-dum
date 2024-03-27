@@ -11,15 +11,11 @@ export default function Session({date,time,currentCapacity,maxCapacity,desc}:{da
             <div className={styles.rowBlock}> 
                 <div className={styles.topic}> 
                     {date} 
-                    {/* <IconButton aria-label="edit">
-                        <EditIcon className={styles.editButton}/>
-                    </IconButton>  */}
+                    
                 </div>
                 <div className={styles.Time}> 
                     {time} 
-                    {/* <IconButton aria-label="edit">
-                        <EditIcon className={styles.editButton}/>
-                    </IconButton>  */}
+                    
                 </div>
                 <div className={styles.Capa}> 
                     Capacity:{currentCapacity}/{maxCapacity} 
@@ -30,9 +26,7 @@ export default function Session({date,time,currentCapacity,maxCapacity,desc}:{da
             </div>
             <div className={styles.topic}> 
                 Description : 
-                {/* <IconButton aria-label="edit">
-                    <EditIcon className={styles.editButton}/>
-                </IconButton>  */}
+                
             </div>
             <div className={styles.desc}> {desc} </div>
             <AttendeePanel/>
