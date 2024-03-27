@@ -56,7 +56,7 @@ export default function CreateNewCompany({user} : {user : any}) {
                 <div className={styles.textBlock}>
                     <div className={styles.rowBlock}>
                         <div className={styles.topicBlock}>
-                            Name
+                            Name*
                         </div>
                         <div className={styles.inputBlock}>
                             <TextField value={name} onChange={(newValue) => {setName(newValue.target.value)}} id="name" variant="standard" className={styles.textField}/>

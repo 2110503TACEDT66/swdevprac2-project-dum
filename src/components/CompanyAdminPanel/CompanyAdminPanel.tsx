@@ -4,7 +4,7 @@ import getAllCompanies from '@/app/libs/getAllCompanies';
 
 export default async function({user} : {user : any}){
     
-    
+
     const allCompanies = await getAllCompanies()
 
       return(
@@ -12,10 +12,7 @@ export default async function({user} : {user : any}){
             <div className={styles.fullOutline}>
             <div className={styles.fullBlock}>
                 {allCompanies.data.map((company : any) => (
-                    
-                    <CompanyAdminBlock key={company.id} user={user} company={company}
-                        
-                    />
+                    <CompanyAdminBlock key={company._id} user={user} company={company}/>
                 ))}
             </div>
             </div>

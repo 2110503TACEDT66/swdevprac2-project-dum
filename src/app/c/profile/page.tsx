@@ -1,4 +1,3 @@
-import CompanyProfile from "@/components/CompanyProfile/CompanyProfile"
 import CompanyDetailCard from "@/components/CompanyDetailCard/CompanyDetailCard"
 import styles from './page.module.css'
 import CreateSession from "@/components/CreateSession/CreateSession"
@@ -26,9 +25,9 @@ export default async function TestAttendee(){
             </div>
 
             <div className={styles.Sec2}>
+                <LogoutButton/>
                 <h2 className={styles.HeaderText}>Create Sesison</h2>
                 <CreateSession user = {thisUser}/>
-                <LogoutButton/>
             </div>
 
             <div className={styles.Sec3}>

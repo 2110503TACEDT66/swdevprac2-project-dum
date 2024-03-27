@@ -8,6 +8,8 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useState } from 'react';
 import Image from "next/image";
 import { Button } from '@mui/material';
+import { useRef } from 'react';
+import deleteCompany from '@/app/libs/deleteCompany';
 
 export default function CompanyAdminBlock({company , user}:{company : any , user : any}){
 
@@ -31,17 +33,6 @@ export default function CompanyAdminBlock({company , user}:{company : any , user
                         <div className={styles.compDesc}>{company.description}</div>
                     </div>
                     <div className={styles.imgBlock}>
-                        {
-                            expanded &&
-                            <div className={styles.buttonBlock}>
-                                <Button variant="contained" className={styles.editButton}>
-                                    Edit Company
-                                </Button>
-                                <Button variant="contained" className={styles.deleteButton}>
-                                    Delete Company
-                                </Button>
-                            </div>
-                        }
                         <div className={styles.logoBlock}>
                             <Image width={0} height={0} sizes="100vh" src={company.imageurl} alt="company logo" className={styles.compLogo}/>
                         </div>
