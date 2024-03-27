@@ -2,7 +2,8 @@
 
 import { getServerSession } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]/route"
-import { revalidateTag } from "next/cache"
+import revalidateData from "./revalidataData"
+
 
 const backend_url = process.env.BACKEND_URL
 
@@ -21,7 +22,7 @@ export default async function createNewTimeSlot (user : any , date : string, sta
         })
     })).json()
 
-    revalidateTag('companyData')
+    revalidateData()
     return newTimeSlot
 
 }

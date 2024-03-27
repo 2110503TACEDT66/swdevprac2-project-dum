@@ -2,7 +2,7 @@
 
 import { getServerSession } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]/route"
-import { revalidateTag } from "next/cache"
+import revalidateData from "./revalidataData"
 const backend_url = process.env.BACKEND_URL
 
 export default async function companyUpdate (companyId : any , token : any , newData : Object) {
@@ -20,7 +20,7 @@ export default async function companyUpdate (companyId : any , token : any , new
     if (!updateCompany.ok)
         return null
     
-    revalidateTag('companyData')
+    revalidateData()
     return await updateCompany.json()
     }
     catch(err) {

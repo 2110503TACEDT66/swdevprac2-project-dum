@@ -12,9 +12,15 @@ export default async function getAllUser () {
     const allUser = await fetch(`${backend_url}/api/auth/alluser` , {
         headers : {
             authorization : `Bearer ${session?.user.token}`
+        },
+        next : {
+            tags : ['allUser']
         }
     })
-        
+    
+    if (!allUser.ok)
+        return null
+
     return await allUser.json()
 
 }

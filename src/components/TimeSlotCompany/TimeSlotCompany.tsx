@@ -19,16 +19,7 @@ export default function TimeSlotComapny({date,time,currentCapacity,maxCapacity,r
 
     const {data : session , update : updateSession} = useSession()
 
-    async function refreshUserSession() {
-        
-        const thisUser = (await getMe()).data
-        if (!thisUser.token) {
-            thisUser.token = session!.user.token
-        }
-        session!.user = thisUser
-        updateSession(session)
-        
-    }
+    
 
     return(
         <div className={styles.fullBlock}>

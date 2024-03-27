@@ -1,6 +1,7 @@
 'use server'
 
-import { revalidateTag } from "next/cache"
+import revalidateData from "./revalidataData"
+
 
 export default async function createNewCompany(user : any , companyData : any) {
     const backend_url = process.env.BACKEND_URL
@@ -19,7 +20,7 @@ export default async function createNewCompany(user : any , companyData : any) {
     if (!newCompany.ok)
         return null
     
-    revalidateTag('allCompanies')
+    revalidateData()
 
     return await newCompany.json()
 }

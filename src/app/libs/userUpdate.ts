@@ -1,6 +1,7 @@
 'use server'
 
-import { revalidateTag } from "next/cache"
+import revalidateData from "./revalidataData"
+
 
 const backend_url = process.env.BACKEND_URL
 
@@ -22,7 +23,7 @@ export default async function userUpdate (token : any , newData : Object) {
         return null
 
         
-    revalidateTag('userData')
+    revalidateData()
     return await updateUser.json()
 }
     catch(err) {

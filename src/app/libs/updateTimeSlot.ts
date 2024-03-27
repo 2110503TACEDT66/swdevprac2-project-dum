@@ -1,6 +1,7 @@
 'use server'
 
-import { revalidateTag } from "next/cache"
+import revalidateData from "./revalidataData"
+
 
 const backend_url = process.env.BACKEND_URL
 
@@ -17,6 +18,6 @@ export default async function updateTimeSlot (user : any , timeslotId : string ,
     if (!updatedTimeSlot.ok)
         return null
     
-    revalidateTag('companyData')
+    revalidateData()
     return await updatedTimeSlot.json()
 }

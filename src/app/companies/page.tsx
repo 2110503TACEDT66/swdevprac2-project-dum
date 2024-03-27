@@ -8,11 +8,11 @@
 import CompanyPanel from '@/components/CompanyPanel/CompanyPanel'
 import getAllCompanies from '../libs/getAllCompanies'
 import getUserData from '../libs/getUserData'
-import { revalidateTag } from 'next/cache'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { setEngine } from 'crypto'
 import { redirect } from 'next/navigation'
+import revalidateData from '../libs/revalidataData'
 export default async function CompanyPage() {
 
     const session = await getServerSession(authOptions)
@@ -25,7 +25,7 @@ export default async function CompanyPage() {
     if (thisUser.data.role === 'admin')
         redirect('/a/companies')
 
-    revalidateTag('allCompanies')
+    revalidateData()
     return (
         
             <CompanyPanel allCompanies = {allCompanies} thisUser = {thisUser}/>
