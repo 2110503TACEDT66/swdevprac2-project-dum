@@ -42,8 +42,7 @@ export default  function UserDetailCard ({userData} : {userData : any}) {
                 X.disabled = true
                 newData[X.name] = X.value
             });
-            console.log("====")
-            console.log(imageBuffer)
+
 
             if (imageBuffer)
                 newData.imageurl = imageBuffer

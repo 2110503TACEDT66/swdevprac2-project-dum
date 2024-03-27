@@ -7,7 +7,6 @@ const backend_url = process.env.BACKEND_URL
 export default async function companyUpdate (session : any , newData : Object) {
     try {
         
-        console.log(newData)
         const updateCompany = await fetch(`${backend_url}/api/companies/${session.company._id}` , {
         method : 'PUT',
         headers : {

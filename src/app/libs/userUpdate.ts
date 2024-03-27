@@ -7,7 +7,6 @@ const backend_url = process.env.BACKEND_URL
 export default async function userUpdate (token : any , newData : Object) {
     try {
 
-    console.log(JSON.stringify(newData))
     const updateUser = await fetch(`${backend_url}/api/auth/me` , {
         method : 'POST',
         headers : {

@@ -56,10 +56,8 @@ function ReservationBlock ({reservation} : {reservation : any}) {
 
 export default function UserReservationCard ({userData} : {userData : any}) {
 
-        console.log(userData)
 
         const reservartionArray = userData.data.reservation
-        console.log(reservartionArray)
         return (
         <div className={styles.Card}>
             <h2 className={styles.ReservationHeader}>Your Reservation</h2>

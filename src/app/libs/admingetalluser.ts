@@ -14,9 +14,7 @@ export default async function getAllUser () {
             authorization : `Bearer ${session?.user.token}`
         }
     })
-    
-    // console.log(allUser)
-    
+        
     return await allUser.json()
 
 }

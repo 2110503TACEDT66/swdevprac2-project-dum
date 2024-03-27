@@ -8,7 +8,7 @@ export default async function getAllCompanies () {
     const allCompanies = await (await fetch('http://localhost:1234/api/companies' , {next : {tags : ['allCompanies']}})).json()
     
     // revalidateTag('allCompaies')
-    // console.log(allCompanies)
+
     
     return allCompanies
 

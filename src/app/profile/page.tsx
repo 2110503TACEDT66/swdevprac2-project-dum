@@ -19,7 +19,6 @@ export default async function ProfilePage () {
 
     const userData = await getUserData()
     userData.token = session?.user.token
-    console.log(userData)
 
     return (
         <div>
