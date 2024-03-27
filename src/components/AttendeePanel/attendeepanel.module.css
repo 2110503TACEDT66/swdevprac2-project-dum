@@ -1,4 +1,5 @@
 .fullBlock {
+    margin-top: 2vh;
     display: flex;
     flex-direction: column;
     gap: 15px;

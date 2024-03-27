@@ -31,7 +31,7 @@ export default function CreateSession({user} : {user : any}) {
 
     const newTimeSlot =  await createNewTimeSlot(user , date , startTime , endTime , capacity , description)
 
-    if (newTimeSlot)
+    if (newTimeSlot.success)
       setCreated(true)
 
   }
