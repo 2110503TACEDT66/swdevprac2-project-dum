@@ -33,7 +33,8 @@ export default function CreateNewCompany({user} : {user : any}) {
             contact_email : contact_email,
             login_email: login_email,
             password : password,
-            imageurl : imageurl
+            imageurl : imageurl,
+            address : address
         }
 
         const newCompany = await createNewCompany(user , companyData)

@@ -9,6 +9,8 @@ import { useState } from 'react';
 import Image from "next/image";
 export default function CompanyBlock({company , thisUser}:{company : any , thisUser : any}){
 
+    console.log(company)
+
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpand = () => {
@@ -46,8 +48,8 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
                             <div> {company.tel} </div>
                         </div>
                         <div className={styles.web}>
-                            <div className={styles.topic}>Gmail : </div> 
-                            <div> {company.email} </div>
+                            <div className={styles.topic}>Email : </div> 
+                            <div> {company.contact_email} </div>
                         </div>
                         <div className={styles.web}>
                             <div className={styles.topic}>Address : </div> 
