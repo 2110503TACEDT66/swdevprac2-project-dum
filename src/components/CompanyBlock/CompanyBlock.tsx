@@ -40,7 +40,7 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
                         <div className={styles.web}>
                             <div className={styles.topic}>Website : </div> 
                             <div> 
-                                <a href={company.website ? company.website : 'none'} target="_blank" rel="noopener noreferrer" className={styles.link}>{company.website}</a> 
+                                <a href={company.website ? company.website : 'none'} target="_blank" rel="noopener noreferrer" className={styles.link}>{company.website ? company.website : 'none'}</a> 
                             </div> 
                         </div> 
                         <div className={styles.web}>
