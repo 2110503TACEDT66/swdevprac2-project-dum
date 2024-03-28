@@ -40,20 +40,20 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
                         <div className={styles.web}>
                             <div className={styles.topic}>Website : </div> 
                             <div> 
-                                <a href={company.website} target="_blank" rel="noopener noreferrer" className={styles.link}>{company.website}</a> 
+                                <a href={company.website ? company.website : 'none'} target="_blank" rel="noopener noreferrer" className={styles.link}>{company.website}</a> 
                             </div> 
                         </div> 
                         <div className={styles.web}>
                             <div className={styles.topic}>Tel. number : </div> 
-                            <div> {company.tel} </div>
+                            <div> {company.tel? company.tel : 'none'} </div>
                         </div>
                         <div className={styles.web}>
                             <div className={styles.topic}>Email : </div> 
-                            <div> {company.contact_email} </div>
+                            <div> {company.contact_email? company.contact_email : 'none'} </div>
                         </div>
                         <div className={styles.web}>
                             <div className={styles.topic}>Address : </div> 
-                            <div> {company.address} </div>
+                            <div> {company.address? company.address : 'none'} </div>
                         </div>
                     </div>
                     <div className={styles.session}> Session :</div>
