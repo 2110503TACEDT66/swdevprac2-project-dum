@@ -24,7 +24,7 @@ export default function Landing() {
             <div className={styles.LandingCoverTextWrapper}>
               <h1>CEDT Online Job Fair 2022</h1>
               <h2>Look for your own opportunities.</h2>
-              <Button onClick={() => {redirect('/companies')}} className={styles.LandingCoverButton}>Get started</Button>
+              <Button  onClick={() => {window.location.href = '/companies'}} className={styles.LandingCoverButton}>Get started</Button>
             </div>
           </div>
         </section>
