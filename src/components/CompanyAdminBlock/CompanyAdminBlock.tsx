@@ -41,7 +41,7 @@ export default function CompanyAdminBlock({company , user}:{company : any , user
                     <div className={styles.bottomTextBlock}>
                         <div className={styles.web}>
                                 <div className={styles.topic}>Email : </div> 
-                                <div> {company.contact_email? company.contact_email : 'null'} </div>
+                                <div> {!company.contact_email || company.contact_email === ''? 'none' : company.contact_email } </div>
                             </div>
                             <div className={styles.web}>
                             <div className={styles.topic}>Tel. number : </div> 
