@@ -37,6 +37,8 @@ export default function CompanyAdminBlock({company , user}:{company : any , user
                         </div>
                     </div>
                 </div>
+
+                
                 {expanded &&<div className={styles.bottomPart}>
                     <div className={styles.bottomTextBlock}>
                         <div className={styles.web}>
