@@ -5,6 +5,8 @@ import styles from './page.module.css'
 import ImageList from '@/components/SlideShowImage/SlideShowImage'
 import { Button } from '@mui/material'
 import Footer from '@/components/Footer/Footer'
+import { redirect } from 'next/navigation'
+
 
 export default function Landing() {
 
@@ -22,7 +24,7 @@ export default function Landing() {
             <div className={styles.LandingCoverTextWrapper}>
               <h1>CEDT Online Job Fair 2022</h1>
               <h2>Look for your own opportunities.</h2>
-              <Button className={styles.LandingCoverButton}>Get started</Button>
+              <Button onClick={() => {redirect('/companies')}} className={styles.LandingCoverButton}>Get started</Button>
             </div>
           </div>
         </section>
