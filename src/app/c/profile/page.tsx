@@ -26,7 +26,7 @@ export default async function TestAttendee(){
 
             <div className={styles.Sec2}>
                 <LogoutButton/>
-                <h2 className={styles.HeaderText}>Create Sesison</h2>
+                <h2 className={styles.HeaderText}>Create Sessison</h2>
                 <CreateSession user = {thisUser}/>
             </div>
 
