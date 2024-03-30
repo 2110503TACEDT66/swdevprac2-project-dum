@@ -27,7 +27,7 @@ export default async function CompanyPage() {
 
     return (
         
-            <CompanyPanel allCompanies = {allCompanies} thisUser = {thisUser}/>
+            <CompanyP   anel allCompanies = {allCompanies} thisUser = {thisUser}/>
          
     )
 }
