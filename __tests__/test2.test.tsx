@@ -1,5 +1,6 @@
 import { render, screen , waitFor} from '@testing-library/react';
 import CompanyPanel from '@/components/CompanyPanel/CompanyPanel';
+import userEvent from '@testing-library/user-event'
 
 const mockUser={
     "success": true,
@@ -91,7 +92,7 @@ const mockResult={
 
 
 describe('Company Panel',()=>{
-    it('should have 3 company block', async () =>{
+    it('Should have 3 company block', async () =>{
         const companyPanel = await  CompanyPanel({allCompanies:mockResult,thisUser:mockUser});
         render(companyPanel)
         await waitFor(
@@ -102,9 +103,36 @@ describe('Company Panel',()=>{
         )
     })
 
-    it('should have company detail when click expand',async()=>{
+    it('Should have 3 company detail when click expand',async()=>{
         const companyPanel = await  CompanyPanel({allCompanies:mockResult,thisUser:mockUser});
-        render(companyPanel)
+        render(companyPanel);
+        const expandButtons = screen.getAllByTestId('expand');
 
+        for (const expandButton of expandButtons) {
+            userEvent.click(expandButton);
+        }
+        await waitFor(() => {
+            const companyDetail = screen.queryAllByTestId('Company Detail and Session'); // Adjust this selector according to your component structure
+            expect(companyDetail.length).toBe(3);
+        });
+    })
+
+    it('Should have no company detail when click expand 2 time',async()=>{
+        const companyPanel = await  CompanyPanel({allCompanies:mockResult,thisUser:mockUser});
+        render(companyPanel);
+        const expandButtons = screen.getAllByTestId('expand');
+
+        for (const expandButton of expandButtons) {
+            userEvent.click(expandButton);
+        }
+
+        for (const expandButton of expandButtons) {
+            userEvent.click(expandButton);
+        }
+
+        await waitFor(() => {
+            const companyDetail = screen.queryAllByTestId('Company Detail and Session'); // Adjust this selector according to your component structure
+            expect(companyDetail.length).toBe(0);
+        });
     })
 })
