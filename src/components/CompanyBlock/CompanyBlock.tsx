@@ -22,8 +22,10 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
             <div className={styles.fullBlock}>
                 <div className={styles.minimizeBlock}> 
                     <IconButton onClick={toggleExpand} aria-label={expanded ? 'Collapse' : 'Expand'}>
+                        <div data-testid="expand">
+                            {expanded ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+                        </div>
                         
-                        {expanded ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
                         
                     </IconButton>
                 </div>
@@ -38,7 +40,7 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
                     
                 </div>
                 {expanded &&<div className={styles.bottomPart}>
-                    <div className={styles.bottomTextBlock}>
+                    <div className={styles.bottomTextBlock} data-testid="Company Detail and Session">
                         <div className={styles.web}>
                             <div className={styles.topic}>Website : </div> 
                             <div> 
