@@ -24,7 +24,6 @@ export function NavBarButton ({text , link , imgSrc} : {text? : string , link : 
             </Link>
         )
     }
-
 }
 
 export default async function NavBar () {
@@ -33,7 +32,6 @@ export default async function NavBar () {
 
     const userData = await getUserData(session)
 
-    
     let  userImageUrl : string = ''
 
     if (userData)
@@ -62,3 +60,4 @@ export default async function NavBar () {
         </div>
     )
 }
+
