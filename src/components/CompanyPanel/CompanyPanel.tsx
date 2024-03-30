@@ -9,7 +9,7 @@ export default async function({allCompanies , thisUser} : {allCompanies : any , 
             <div className={styles.fullOutline}>
             <div className={styles.fullBlock}>
                 {allCompanies.data.map((company : any) => (
-                    <div data-testid="CompanyBlock">
+                    <div data-testid="CompanyBlock" className={styles.divWrapper}>
                         <CompanyBlock  key={company._id} company = {company} thisUser = {thisUser} />
                     </div>
                 ))}
