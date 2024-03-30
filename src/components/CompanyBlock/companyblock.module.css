@@ -5,14 +5,7 @@
 .fullBlock{
     position: relative;
     width: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
     padding: 2%;
-    border-radius: 10px;
-    box-sizing: border-box;
-
-    font-family: 'Poppins';
 }
 
 .minimizeBlock {

@@ -22,7 +22,9 @@ export default function CompanyBlock({company , thisUser}:{company : any , thisU
             <div className={styles.fullBlock}>
                 <div className={styles.minimizeBlock}> 
                     <IconButton onClick={toggleExpand} aria-label={expanded ? 'Collapse' : 'Expand'}>
+                        
                         {expanded ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+                        
                     </IconButton>
                 </div>
                 <div className={styles.topPart}>
